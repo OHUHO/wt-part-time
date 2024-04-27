@@ -1,0 +1,144 @@
+
+page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: whitesmoke;
+}
+.scrollarea {
+  flex: 1;
+  overflow-y: hidden;
+}
+.container{
+  display: flex;
+  flex-direction: column;
+  padding-top: 0rpx;
+  height: 100%;
+}
+.bigTitle {
+  background-color:whitesmoke;
+  padding: 0rpx 15rpx;
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+  min-height: 100rpx;
+  justify-content: space-between;
+}
+.form {
+  background-color: white;
+  padding-top: 0rpx;
+  padding-left: 15rpx;
+  padding-right: 15rpx;
+  /* display: flex; */
+  align-items: center;
+  border-radius: 20rpx;
+  /* min-height: 100rpx; */
+  /* justify-content: space-between; */
+}
+.title {
+  text-align: justify;
+  padding-right: 30rpx;
+  font-size: 30rpx;
+  /* position: relative; */
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.reminder {
+  width: 700rpx; 
+  height: 64rpx; 
+  /* display: block;  */
+  box-sizing: border-box;
+  border-bottom: 1rpx solid whitesmoke;
+}
+
+.scroll-x {
+  display: flex;
+  flex-direction: row;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+}
+.view {
+  width: 100rpx;
+  height: 50rpx;
+  padding-top: 8rpx;
+  padding-bottom: 8rpx;
+  text-align: center;
+  border-radius: 10rpx;
+  border: 2rpx solid rgb(202, 200, 200);
+  margin-right: 16rpx;
+  align-items: center;
+}
+.active,._left{
+  color: #fff;
+  background-color: #f6a57f;
+  /* rgb(115, 178, 250) */
+}
+
+.form1 {
+  background-color: white;
+  /* padding: 1rpx 30rpx; */
+  padding-left: 15rpx;
+  padding-right: 15rpx;
+  display: flex;
+  align-items: center;
+  min-height: 100rpx;
+  justify-content: space-between;
+}
+.title1 {
+  text-align: justify;
+  padding-right: 30rpx;
+  font-size: 30rpx;
+  position: relative;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.reminder1 {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-bottom: 1rpx solid whitesmoke;
+  height:100rpx;
+  font-size: 28rpx;
+  color: #555;
+}
+
+/* 日期选择 */
+.picker_group {
+  height: 85rpx;
+  line-height: 85rpx;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+  color: #888;
+  /* border-bottom: 1rpx solid #efefef; */
+
+}
+
+.picker_group picker {
+  /* color: rgb(115, 178, 250); */
+  width: 220rpx;
+  height: 55rpx;
+  line-height: 55rpx;
+  margin: 0 2%;
+  padding: 0 2%;
+  border: 1rpx solid #f6a57f;
+  border-radius: 30rpx;
+}
+
+.btn {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  
+}
+
+.main {
+  text-align: center;
+  font-size: 40rpx;
+  padding: 20rpx;
+  font-weight: 1000;
+  color: white;
+  background-color:#f6a57f;
+}

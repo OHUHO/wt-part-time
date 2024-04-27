@@ -1,0 +1,9 @@
+<view class='nav-wrap' style='height: {{statusBarHeight*2+20}}px;'>
+  <!-- 搜索框开始 -->
+  <view class='tit_seabox' style='height: {{statusBarHeight*2}}px;width:60%;'>
+    <view class="tit_seabox_bar" style="margin-top:26px">
+      <icon type='search' size="18px"></icon>
+      <input type="text" placeholder='请输入查询内容...' disabled/>
+    </view>
+  </view>
+</view>

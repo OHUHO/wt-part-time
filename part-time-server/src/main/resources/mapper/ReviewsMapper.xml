@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.walker.part.mapper.ReviewsMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.walker.part.entity.Reviews">
+        <id column="reviews_id" property="reviewsId" />
+        <result column="job_id" property="jobId" />
+        <result column="user_id" property="userId" />
+        <result column="user_name" property="userName" />
+        <result column="point" property="point" />
+        <result column="content" property="content" />
+        <result column="additional" property="additional" />
+        <result column="status" property="status" />
+        <result column="logic_delete" property="logicDelete" />
+        <result column="create_time" property="createTime" />
+        <result column="create_user_id" property="createUserId" />
+        <result column="create_user_name" property="createUserName" />
+        <result column="update_time" property="updateTime" />
+        <result column="update_user_id" property="updateUserId" />
+        <result column="update_user_name" property="updateUserName" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        reviews_id, job_id, user_id, user_name, point, content, additional, status, logic_delete, create_time, create_user_id, create_user_name, update_time, update_user_id, update_user_name
+    </sql>
+
+</mapper>

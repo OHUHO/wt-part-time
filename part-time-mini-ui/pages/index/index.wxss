@@ -1,0 +1,300 @@
+page{
+  background-color: whitesmoke;
+}
+.indexContainer{
+  background-color: whitesmoke;
+  /* background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(1, whitesmoke)); */
+  /* background: -webkit-linear-gradient(top,white,whitesmoke,whitesmoke); */
+}
+
+/*轮播图区域*/
+.swiperContainer{
+  margin-top: 10rpx;
+  bottom: 8rpx;
+  position: relative;
+  background-color: whitesmoke;
+}
+.imageContainer{
+  width: 100%;
+  margin-top: 10rpx;
+  height: 280rpx;
+}
+/* .turnItem{
+  height: 00rpx;
+} */
+.itemImg{
+  position: absolute;
+  width: 99%;
+  height: 260rpx;
+  margin-top: 10rpx;
+  border-radius: 15rpx;
+}
+.imgActive{
+  opacity: 1;
+  height: 280rpx;
+  margin-top: 0rpx;
+  transition:all .2s ease-in 0s;
+}
+/* 指示点 */
+.dots{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 25rpx;
+  display: flex;
+  justify-content: center;
+}
+.dot{
+  margin: 0 8rpx;
+  width: 10rpx;
+  height: 6rpx;
+  background-color: white;
+  border-radius: 8rpx;
+  transition: all .5s;
+}
+.dot.active{
+  width: 15rpx;
+  background: #f6a57f;
+}
+.gradientColor{
+  background: -webkit-linear-gradient(top,white,white,whitesmoke);
+}
+
+/* 五个图标导航区域*/
+.categoryList{
+  display: flex;
+  flex-direction: row;
+  padding: 10rpx;
+  align-items: center;
+  justify-content: center;
+}
+.personalCategory{
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  box-sizing: border-box;
+  align-items: center;
+  padding: 5rpx;
+}
+.categoryImage{
+  display: flex;
+  align-items: center;
+  height: 80rpx;
+  width: 80rpx;
+}
+
+.categoryText{
+  display: flex;
+  align-items: center;
+  font-size: 26rpx;
+  font-weight: 400;
+  margin-top: 15rpx;
+}
+
+/* 五个图标导航区域（作废）*/
+/*.category_swiper {
+  width: 100%;
+  height: 210rpx;
+  background-color: white;
+}
+.category_swiper .wx-swiper-dot {
+  width: 15rpx;
+  display: inline-flex;
+  height: 6rpx;
+  margin-left: 10rpx;
+  justify-content: space-between;
+}
+
+.category{
+  display: flex;
+  
+}
+.categoryItem{
+  display:  flex;
+  flex-direction: column;
+  align-items:  center;
+  width:  25%;
+}
+.categoryItem image{
+  width:100rpx;
+  height:100rpx;
+  border-radius:100rpx;
+  margin: 20rpx 0;
+}
+.categoryItem text{
+  font-size: 25rpx;
+}
+
+
+.tab {
+  float: left;
+  width: 33.3333%;
+  text-align: center;
+  padding: 10rpx 0;
+}
+ 
+.topTabSwiper {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  zoom: 1;
+}
+ 
+.topTabSwiper:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+ 
+.tabBorer {
+  border-bottom: 1px solid #f6a57f; 
+  color: #f6a57f;
+}*/
+ 
+
+/* 四个十字分区 */
+.fourBlock{
+  display: flex;
+  flex-direction:row;
+  flex-wrap: wrap;
+  height: 300rpx;
+  background-color: white;
+  border-radius: 15rpx;
+  margin: 15rpx 35rpx ;
+  border: 10rpx solid white;
+}
+.one{
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  align-items: center;
+  width: 50%;
+  background-color: white;
+  border: 4rpx solid whitesmoke;
+  justify-content: space-between;
+  padding: 20rpx;
+}
+.one .allText{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.one image{
+  height: 100rpx;
+  width: 100rpx;
+}
+.one .bigText{
+  font-weight: 400;
+}
+.one .smallText{
+  font-size: 24rpx;
+  color: rgb(104, 102, 102);
+}
+
+/* 四个十字分区（作废） */
+/* .swiper {
+  width: 100%;
+  height: 1300rpx;
+}
+.text{
+  display: flex;
+  flex-direction:column;
+  align-items:center;
+}
+.block{
+  display: flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content: space-between;
+  background-color: white;
+  width: 460rpx;
+  height: 140rpx;
+  margin: 5rpx;
+}
+.fourImg{
+  height: 140rpx;
+  width: 140rpx;
+}
+.row{
+  display: flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content: space-between;
+} */
+
+
+/*推荐区域*/
+.recommendContainer{
+  padding: 10rpx;
+  height: 100%;
+  background-color: white;
+  border-radius: 20rpx;
+  margin-bottom: 15rpx;
+}
+/*内容区*/
+.recommendScroll{
+  display: flex;
+  height: 280rpx;
+}
+.scrollItem{
+  width: 180rpx;
+  margin-right: 10rpx;
+  margin-left: 20rpx;
+}
+.scrollItem image{
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 10rpx;
+}
+.scrollItem text{
+  font-size: 26rpx;
+  /*单行文本溢出用省略号代替*/
+  /*display: block;
+  /white-space: nowrap;
+  /overflow: hidden;
+  /text-overflow: ellipsis;
+  /*多行文本溢出用省略号代替*/
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;  /*设置多行行数*/
+}
+
+/* 排行榜  */
+.topList {
+  padding: 10rpx;
+  background-color: white;
+  border-radius: 20rpx;
+}
+.topListSwiper {
+  height: 400rpx;
+}
+.swiperItem {
+  width: 96%;
+  background: #fbfbfb;
+}
+.swiperItem .title {
+  font-size: 30rpx;
+  line-height: 80rpx;
+}
+.businessItem {
+  /* 当一个元素设置为flex，其子元素会自动成为block元素*/
+  display: flex;
+  margin-bottom: 20rpx;
+}
+.businessItem image{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 6rpx;
+}
+.businessItem .count {
+  width: 100rpx;
+  height: 100rpx;
+  text-align: center;
+  line-height: 100rpx;
+}
+.businessItem .businessName{
+  height: 100rpx;
+  line-height: 100rpx;
+}

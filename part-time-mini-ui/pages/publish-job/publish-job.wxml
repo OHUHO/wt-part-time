@@ -1,0 +1,145 @@
+<!--pages/publishJob/publishJob.wxml-->
+<navigation-bar title="发布兼职" back="{{true}}" color="black" background="#FFF"></navigation-bar>
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="container">
+    <form>
+      <view class="bigTitle">
+        <text>基础信息</text>
+      </view>
+      <view class="form">
+        <view class="title">兼职名称:</view>
+        <view class="reminder">
+          <input maxlength="20" 
+            placeholder="请输入兼职的名称，3~20个字。" 
+            value="{{job.name}}" 
+            data-key="job.name" 
+            bindinput="setInput"/>
+        </view>
+      </view>
+      <view class="form">
+        <view class="title">兼职内容:</view>
+        <view class="">
+          <textarea maxlength="300" 
+            placeholder="请输入兼职的内容，10~300字。" 
+            value="{{job.content}}" 
+            data-key="job.content" 
+            bindinput="setInput"/>
+        </view>
+      </view>
+      <view class="bigTitle">
+        <text>薪资报酬</text>
+      </view>
+      <view class="form">
+        <view class="title">薪资:</view>
+        <view class="reminder">
+          <input maxlength="10" 
+            type="number" 
+            placeholder="请输入薪资(不能包含小数)" 
+            value="{{job.salary}}" 
+            data-key="job.salary" 
+            bindinput="setInput"></input>
+        </view>
+        <scroll-view scroll-x="true">
+          <view class="scroll-x">元/
+            <view wx:for="{{salaryTypes}}" wx:key="index">
+              <view class="view {{salaryTypes[index].value==job.salaryType?'_left':'left'}}" 
+                data-value="{{salaryTypes[index].value}}"
+                bindtap="setSalaryType">{{item.name}}</view>
+            </view>
+          </view>
+        </scroll-view>
+      </view>
+      <view class="form">
+        <view class="title">结算:</view>
+        <scroll-view scroll-x="true">
+          <view class="scroll-x">
+            <view wx:for="{{payTypes}}" wx:key="index">
+              <view class="view {{payTypes[index].value == job.payType ?'_left':'left'}}" 
+              data-value="{{payTypes[index].value}}" 
+              bindtap="setPayType">{{item.name}}</view>
+            </view>
+          </view>
+        </scroll-view>
+      </view>
+      <view class="bigTitle">
+        <text>职位要求</text>
+      </view>
+      <view class="form1">
+        <view class="title1">兼职分类:</view>
+        <picker class="reminder1"
+          range="{{jobTypes}}"
+          range-key="typeName"
+          bindchange="selectJobType" >
+          <view class="picker">{{jobTypes[selectedJobTypeIndex].typeName}}</view>
+        </picker>
+      </view>
+      <view class="form1">
+        <view class="title1">工作时间</view>
+        <view class="reminder1">  
+          <view class="picker_group">  
+            <picker mode="date" 
+              start="{{job.beginTime}}" 
+              value="{{job.beginTime}}"  
+              end="2050-1-1"
+              bindchange="selectBeginTime">
+              <view class="picker">{{job.beginTime}}</view> 
+            </picker>  
+            至
+            <picker mode="date"
+              start="{{job.beginTime}}" 
+              value="{{job.endTime}}" 
+              end="2050-1-1" 
+              bindchange="selectEndTime">  
+              <view class="picker">{{job.endTime}}</view> 
+            </picker>        
+          </view>  
+        </view>  
+      </view>
+      <view class="form1">
+        <view class="title1">招聘人数</view>
+        <view class="reminder1">
+          <input maxlength="4" type="number" 
+          placeholder="请输入招聘的人数" 
+          value="{{ job.count }}" 
+          data-key="job.count" 
+          bindinput="setInput"></input>
+        </view>
+      </view>
+      <view class="form1">
+        <view class="title1">性别要求</view>
+        <picker class="reminder1" 
+          bindchange="selectGender" 
+          range="{{gender}}" 
+          range-key="name">
+          <view class="picker">{{gender[selectedGenderIndex].name}}</view>
+        </picker>
+      </view>
+      <view class="bigTitle">
+        <text>工作地点</text>
+      </view>
+      <view class="form1">
+        <view class="title1">工作地点</view>
+        <view class="reminder1">
+          <picker bindchange="selectAddress" mode = "region" value="{{address}}">
+            <view class="detail1">{{address[0]}} - {{address[1]}} - {{address[2]}}</view>
+          </picker>
+        </view>
+      </view>
+      <view class="form1" style="margin-bottom: 188rpx;">
+        <view class="title1">详细地址</view>
+        <view class="reminder1">
+          <input maxlength="40" 
+            placeholder="请填写工作的详细地址" 
+            value="{{ addressDetails}}"
+            data-key="addressDetails"
+            bindinput="setInputAddress"/>
+        </view>
+      </view>
+    </form>
+    <view class="btn">
+      <view bindtap="submit" class="main">
+        <text>立即发布</text>
+      </view>
+    </view>
+  </view>
+</scroll-view>

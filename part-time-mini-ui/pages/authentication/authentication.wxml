@@ -1,0 +1,97 @@
+<!--pages/authentication/authentication.wxml-->
+<!-- <nav-bar navbar-data='{{nvabarData}}'></nav-bar> -->
+<navigation-bar title="商家认证" back="{{true}}" color="black" background="#FFF"></navigation-bar>
+<view>
+  <form catchsubmit="container">
+    <view class="form">
+      <view class="title">姓名:</view>
+      <view class="reminder">
+        <input maxlength="15" 
+          placeholder="请输入姓名" 
+          value="{{business.username}}" 
+          data-key="business.username"
+          bindinput="update"/>
+      </view>
+    </view>
+    <view class="form">
+      <view class="title">性别:</view>
+      <picker class="reminder" 
+        bindchange="selectGender" 
+        range="{{gender}}" 
+        range-key="name">
+        <view class="picker">{{gender[selectedGenderIndex].name}}</view>
+      </picker>
+    </view>
+    <view class="form">
+      <view class="title">手机号:</view>
+      <view class="reminder">
+        <input maxlength="11" 
+          placeholder="请输入手机号" 
+          value="{{business.phone}}" 
+          data-key="business.phone" 
+          bindinput="update"/>
+      </view>
+    </view>
+    <view class="form">
+      <view class="title">身份证号:</view>
+      <view class="reminder">
+        <input maxlength="18" 
+          placeholder="请输入身份证号" 
+          value="{{business.cardNo}}" 
+          data-key="business.cardNo" 
+          bindinput="update"/>
+      </view>
+    </view>
+    <view class="form">
+      <view class="title">店铺类型:</view>
+      <picker class="reminder" 
+        bindchange="selectStoreType" 
+        range="{{storeType}}" 
+        value="index">
+        <view class="picker">{{storeType[selectedStoreTypeIndex]}}</view>
+      </picker>
+    </view>
+    <view class="form">
+      <view class="title">店铺名称:</view>
+      <view class="reminder">
+        <input maxlength="20" 
+          placeholder="请输入店铺名称" 
+          value="{{business.storeName}}" 
+          data-key="business.storeName" 
+          bindinput="update"/>
+      </view>
+    </view>
+    <view class="form">
+      <view class="title">证件类型:</view>
+      <picker class="reminder" 
+        bindchange="selectPapersType"
+        range="{{papersType}}"
+        value="index">
+        <view class="picker">{{papersType[selectedPapersTypeIndex]}}</view>
+      </picker>
+    </view>
+    <view class="form">
+      <view class="title">证件号码：</view>
+      <view class="reminder">
+        <input maxlength="30" 
+          placeholder="请输入证件号码" 
+          value="{{business.papersNumber}}" 
+          data-key="business.papersNumber" 
+          bindinput="update"/>
+      </view>
+    </view>
+    <view class="form">
+      <view class="title">材料上传：</view>
+      <view class="reminder">
+        <input disabled
+          placeholder="点击上传认证材料" 
+          value="{{papersFilesName}}" 
+          bindtap="uploadFiles"/>
+      </view>
+    </view>
+    <view class="form">
+      <text class="title tips">温馨提示：以上信息必须保持真实和有效性，上传的材料必须包含身份证信息和您选择的其他证件信息</text>
+    </view>
+    <button class='btn' bindtap="submit">确定</button>
+  </form>
+</view>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.walker.part.mapper.JobInfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.walker.part.entity.JobInfo">
+        <id column="job_id" property="jobId" />
+        <result column="business_id" property="businessId" />
+        <result column="name" property="name" />
+        <result column="content" property="content" />
+        <result column="cover" property="cover" />
+        <result column="type_id" property="typeId" />
+        <result column="salary" property="salary" />
+        <result column="salary_type" property="salaryType" />
+        <result column="pay_type" property="payType" />
+        <result column="gender" property="gender" />
+        <result column="count" property="count" />
+        <result column="registered" property="registered" />
+        <result column="begin_time" property="beginTime" />
+        <result column="end_time" property="endTime" />
+        <result column="status" property="status" />
+        <result column="logic_delete" property="logicDelete" />
+        <result column="create_time" property="createTime" />
+        <result column="create_user_id" property="createUserId" />
+        <result column="create_user_name" property="createUserName" />
+        <result column="update_time" property="updateTime" />
+        <result column="update_user_id" property="updateUserId" />
+        <result column="update_user_name" property="updateUserName" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        job_id, business_id, name, content, cover, type_id, salary, salary_type, pay_type, gender, count, registered, begin_time, end_time, status, logic_delete, create_time, create_user_id, create_user_name, update_time, update_user_id, update_user_name
+    </sql>
+
+</mapper>

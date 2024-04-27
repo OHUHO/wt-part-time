@@ -1,0 +1,91 @@
+<wxs src='/utils/filter.wxs' module='filter'></wxs>
+<navigation-bar title="我的发布详情" back="{{ true}}" color="black" background="#FFF"></navigation-bar>
+<scroll-view class="scrollarea" scroll-y type="list" wx:if="{{job}}">
+  <view>
+    <image class="background" src="/static/images/student_top.png" style="position: relative; left: 0rpx; top: -2rpx"></image>
+  </view>
+  <view class="radius">
+    <view class="title">
+      <text>{{job.name}}</text>
+      <text class="salary">{{filter.detailSalaryFormat(job.salary,job.salaryType)}}</text>
+    </view>
+    <view class="label">
+      <text>{{filter.payTypeFormat(job.payType)}}</text>
+    </view>
+  </view>
+  <view class="content">
+    <view class="reminder" bindtap="reminder">
+      <view>
+        <icon class="iconfont icon-huanbaoweishi-jihuo"></icon>
+        <text class="text0">京鹿保障</text>
+        <text class="text1">放心选购 兼职无忧</text>
+      </view>
+      <text class="text2"> > </text>
+    </view>
+    <view class="information">
+      <view class="info0">
+        <view class="hint">
+          <icon class="iconfont icon-didian"></icon>
+          <text > 工作地点</text>
+        </view>
+        <text class="detail">{{job.address}}</text>
+      </view>
+      <view class="line"></view>
+      <view class="info0">
+        <view class="hint">
+          <icon class="iconfont icon-shijianduan"></icon>
+          <text > 工作日期</text>
+        </view>
+        <text class="detail">{{filter.dateFormatLength(job.beginTime)}} ~ {{filter.dateFormatLength(job.endTime)}}</text>
+      </view>
+      <view class="line"></view>
+      <view class="info0">
+        <view class="hint">
+          <icon class="iconfont icon-renshu"></icon>
+          <text > 人数要求</text>
+        </view>
+        <text class="detail">{{job.registered}} / {{job.count}}</text>
+      </view>
+      <view class="line"></view>
+      <view class="info0">
+        <view class="hint">
+          <icon class="iconfont icon-xingbieyaoqiu"></icon>
+          <text > 性别要求</text>
+        </view>
+        <text class="detail">{{job.gender == '1' ? '男' : job.gender == '2' ? '女' : '不限'}}</text>
+      </view>
+    </view>
+    <view class="publisherDetails">
+      <view class="headline">
+        <text>商家信息</text>
+      </view>
+      <view class="publisher">
+        <view class="userInfo">
+          <label class="name">
+            <text>{{job.storeName}}</text>
+          </label>
+        </view>
+        <view class="authentication">
+          <icon class="authentication iconfont icon-quangou_"></icon>
+          <text> 已完成商家认证</text>
+        </view>
+      </view>
+    </view>
+    <view class="">
+      <view class="headline">
+        <text>岗位详情</text>
+      </view>
+      <textarea class="detail" value="{{job.content}}"/>
+    </view>
+  </view>
+  <view class="bottom">
+    <view class="main">
+      <view class="contact" bindtap="contact">
+        <icon class="iconContact iconfont icon-lianxishangjia1"></icon>
+        <text>联系Ta</text>
+      </view>
+      <view class="enroll" wx:if="{{ isRegistration }}">已报名</view>
+      <view class="enroll" wx:else bindtap="join" >立即报名</view>
+    </view>
+  </view>
+</scroll-view>

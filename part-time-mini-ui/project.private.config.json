@@ -1,0 +1,72 @@
+{
+  "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
+  "projectname": "part-time-mini-ui",
+  "setting": {
+    "compileHotReLoad": true,
+    "skylineRenderEnable": false,
+    "urlCheck": false
+  },
+  "libVersion": "2.23.4",
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "我参加的兼职",
+          "pathName": "pages/my-join/my-join",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "发布兼职",
+          "pathName": "pages/publish-job/publish-job",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "我发布的兼职",
+          "pathName": "pages/my-job/my-job",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "TB::兼职",
+          "pathName": "pages/job/job",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "欢迎页",
+          "pathName": "pages/welcome/welcome",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "授权登录",
+          "pathName": "pages/login/login",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "TB::我的",
+          "pathName": "pages/me/me",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "商家认证",
+          "pathName": "pages/authentication/authentication",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

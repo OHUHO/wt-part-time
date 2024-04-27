@@ -1,0 +1,18 @@
+<wxs src='/utils/filter.wxs' module='filter'></wxs>
+<navigation-bar title="发布的兼职" back="{{true}}" color="black" background="#FFF"></navigation-bar>
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="my-job-container">
+    <job-card/>
+    <view wx:for="{{jobs}}" wx:key="index">
+      <job-card name='{{item.name}}'
+        salary='{{filter.salaryFormat(item.salary,item.salaryType,item.payType)}}'
+        jobType='{{item.typeName}}'
+        createTime='{{filter.dateFormatStyle(item.createTime)}}'
+        address='{{item.address}}'
+        beginTime='{{filter.dateFormatLength(item.beginTime)}}'
+        endTime='{{filter.dateFormatLength(item.endTime)}}'
+        bindtap="details"
+        data-value="{{item.jobId}}"/>
+    </view>
+  </view>
+</scroll-view>

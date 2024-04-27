@@ -1,0 +1,103 @@
+<!--pages/me/me.wxml-->
+<wxs src='/utils/filter.wxs' module='filter'></wxs>  
+<view class="me-container">
+  <view class="top_view">
+    <image class="background" src="/static/images/00.jpg"></image>
+    <view class="userinfo">
+      <image class="avatarurl" src="{{userInfo.portrait}}"></image>
+      <text class="nickname">{{userInfo.username}}</text>
+    </view>
+    <view class="vipcard">
+      <image class="card-background" src="/static/images/vip-card-bg.png" mode=""></image>
+      <view class="title">
+        <text>兼职社区</text>
+        <view class="button" bindtap="business">商家认证</view> 
+      </view>
+      <text class="description">完善信息有助于体验</text>
+    </view>
+  </view>
+  <view class="pull-down"
+    bindtouchstart="handleTouchStart" 
+    bindtouchmove="handleTouchMove" 
+    bindtouchend="handleTouchEnd"
+    style="transform: {{coverTransform}}; transition: {{coveTransition}}"
+  >
+    <image class="arc" src="/static/images/arc.png"></image>
+    <view class="number">
+      <view class="row"  hover-class="common-hover"  hover-stay-time="50" bindtap="wallet">
+        <text class="iconfont icon-qianbao"></text>
+        <text>积分</text>
+        <text>{{userInfo.point}}</text>
+      </view>
+      <view class="row"   hover-class="common-hover" hover-stay-time="50" bindtap="like" data-information="粉丝">
+        <text class="iconfont icon-fensi-copy"></text>
+        <text>收藏</text>
+        <text>{{userInfo.love}}</text>
+      </view>
+      <view class="row"  hover-class="common-hover"  hover-stay-time="50" bindtap="like" data-information="关注">
+        <text class="iconfont icon-chakantieziguanzhu"></text>
+        <text>粉丝</text>
+        <text>{{userInfo.fans}}</text>
+      </view>
+      <view class="row" hover-class="common-hover"  hover-stay-time="50" bindtap="">
+        <text class="iconfont icon-icon"></text>
+        <text>点赞</text>
+        <text>{{userInfo.good}}</text>
+      </view>
+    </view>
+
+    <!-- 个人列表中心 -->
+    <view class="personalContent">
+      <view class="row" bindtap="myJob" wx:if="{{userInfo.business}}">
+        <view class="left">发布兼职</view>
+        <view class="right">
+          <icon class="iconfont icon-fanhui-copy-copy"></icon>
+        </view>
+      </view>
+      <view class="line"></view>
+      <view class="row" bindtap="myDemand" >
+        <view class="left">经验发布</view>
+        <view class="right">
+          <icon class="iconfont icon-fanhui-copy-copy"></icon>
+        </view>
+      </view>
+      <view class="line"></view>
+      <view class="row" bindtap="authentication">
+        <view class="left">我的经验</view>
+        <view class="right">
+          <icon class="iconfont icon-fanhui-copy-copy"></icon>
+        </view>
+      </view>
+      <view class="line"></view>
+      <view class="row" bindtap="myJoin">
+        <view class="left">我参与的</view>
+        <view class="right">
+          <icon class="iconfont icon-fanhui-copy-copy"></icon>
+        </view>
+      </view>
+      <view class="line"></view>
+      <!-- 我的认证 -->
+      <view class="row" bindtap="myAuthentication" wx:if="{{ userInfo.business }}">
+        <view class="left">我的认证</view>
+        <view class="right">
+          <icon class="iconfont icon-fanhui-copy-copy"></icon>
+        </view>
+      </view>
+      <view class="line" wx:if="{{ userInfo.business }}"></view>
+      <view class="row" bindtap="call">
+        <view class="left">联系我们</view>
+        <view class="right">
+          <icon class="iconfont icon-fanhui-copy-copy"></icon>
+        </view>
+      </view>
+      <view class="line"></view>
+      <view class="row" bindtap="">
+        <view class="left">帮助中心</view>
+        <view class="right">
+          <icon class="iconfont icon-fanhui-copy-copy"></icon>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

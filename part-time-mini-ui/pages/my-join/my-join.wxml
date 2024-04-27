@@ -1,0 +1,25 @@
+<wxs src='/utils/filter.wxs' module='filter'></wxs>
+<navigation-bar title="我参与的" back="{{true}}" color="black" background="#FFF"></navigation-bar>
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="my-job-container">
+    <!-- <job-card/> -->
+    <view class="card-item" 
+      wx:for="{{jobs}}" 
+      wx:key="index"
+      bindtap="details"
+      data-value="{{item.jobId}}">
+      <view class="card-header">
+        <text class="title">{{item.name}}</text>
+        <text class="type">{{item.typeName}}</text>
+      </view>
+      <view class="card-body">
+        <text class="address">地点: {{item.address}}</text>
+        <text class="time">开始: {{ filter.dateFormatStyle(item.beginTime) }}</text>
+      </view>
+      <view class="card-footer">
+        <text class="status">状态: {{filter.jobStatusFormat(item.beginTime,currentTime)}}</text>
+        <text class="details">详情 >></text>
+      </view>
+    </view>
+  </view>
+</scroll-view>

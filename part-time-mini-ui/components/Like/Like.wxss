@@ -1,0 +1,64 @@
+/* components/Like/Like.wxss */
+.box{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /* width: 100%; */
+    padding: 15rpx;
+    margin-top: 10rpx;
+}
+.contents{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.userinfo{
+    display: flex;
+    flex-direction: column;
+    padding-left: 15rpx;
+}
+.username{
+    color: black;
+    font-size: 34rpx;
+    padding-bottom: 2rpx;
+}
+.introduction{
+    color: rgb(141, 139, 139);
+    font-size: 28rpx;
+    padding-top: 2rpx;
+}
+.portrait{
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50rpx;
+}
+
+.attention{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #f6a57f;
+    width: 150rpx;
+    height: 50rpx;
+    border-radius: 10rpx;
+}
+.attention_ed{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #c9c6c6;
+    width: 150rpx;
+    height: 50rpx;
+    border-radius: 10rpx;
+}
+.line{
+    background: whitesmoke;
+    width: 81%;
+    float: right;
+    height: 1rpx;
+    margin-right: 10rpx;
+}

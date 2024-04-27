@@ -1,0 +1,62 @@
+/* components/PartTime/PartTime.wxss */
+.header{
+  background-color: white;
+  padding: 18rpx;
+  margin: 16rpx;
+  border-radius: 14rpx;
+  /* 单行文本溢出用省略号代替 */
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.row{
+  line-height: 50rpx;
+  font-size: 30rpx;
+  margin: 10rpx;
+}
+.right{
+  float: right;
+  /* color: #bbb9b8; */
+}
+.name{
+  color: black;
+}
+.title{
+  display: flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content: space-between;
+  color:#f6a57f;
+  font-size: 32rpx;
+  /* 单行文本溢出用省略号代替 */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0 4rpx;
+}
+.fontStyle{
+  color: #464444;
+  font-size: 30rpx;
+}
+.more{
+  color: #a7a4a4;
+}
+.userInfo {
+  display: flex;
+  flex-direction:row;
+  align-items:center;
+}
+.image{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50rpx;
+  margin-right: 20rpx;
+}
+.workType{
+  border-radius: 5rpx;
+  padding: 3rpx 10rpx;
+  color: #fff;
+  font-size: 28rpx;
+}
+

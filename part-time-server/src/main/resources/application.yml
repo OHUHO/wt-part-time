@@ -1,0 +1,25 @@
+server:
+  port: 8417
+  servlet:
+    context-path: /api
+spring:
+  application:
+    name: part-time-server
+  datasource:
+    url: jdbc:mysql://walker.top:3306/part_time?useUnicode=true&useSSL=true&characterEncoding=utf8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+  jackson:
+    time-zone: GMT+08:00
+    date-format: yyyy-MM-dd HH:mm:ss
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+storage:
+  host: 192.168.43.104
+  port: ${server.port}
+  url: http://${storage.host}:${storage.port}${server.servlet.context-path}/files/
+  abs-path: /Users/walker/Projects/PartTime/part-time/
+  path: ${storage.abs-path}/${spring.application.name}/src/main/resources/static/files/

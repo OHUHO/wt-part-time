@@ -1,0 +1,16 @@
+<!--components/Student.wxml-->
+<!-- 学长页面的信息展示的组件 -->
+<view class="header">
+  <view class="title">{{title}}</view>
+  <view class="other">
+    <view class="labels">
+      <view  wx:for="{{labelList}}" wx:key="index">
+        <text class="label" style="background-color:{{randomColorArr[index]}}">{{item}}</text>
+      </view>
+    </view>
+    <view class="personalInfo">
+      <text class="schoolMajor">{{schooMajor}}</text>
+    </view>
+    
+  </view>
+</view>

@@ -1,0 +1,16 @@
+<!--pages/welcome/welcome.wxml-->
+<view class='bg'>
+  <image class='full'></image>
+  <view class="skip-button" bindtap="skip" style="display:{{isSkip ? '':'none'}}">{{time}} 跳过</view>
+</view>
+<view class="bottom">
+  <view class="main">
+    <view class="logo">
+      <image src="/static/images/logo.png" mode="widthFix" />
+    </view>
+    <view class="detail">
+      <view class="title">京茶吉鹿🦌</view>
+      <view class="intro">解惑答疑，兼职推荐</view>
+    </view>
+  </view>
+</view>

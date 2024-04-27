@@ -1,0 +1,145 @@
+
+// 兼职工资的格式设置
+var salaryFormat= function(salary,salaryType,payType){
+  var salaryTypeT = ''
+  switch (salaryType) {
+    case '1':
+      salaryTypeT = '小时'
+      break;
+    case '2':
+      salaryTypeT = '天'
+      break;
+    case '3':
+      salaryTypeT = '周'
+      break;
+    case '4':
+      salaryTypeT = '月'
+      break;
+    default:
+      salaryTypeT = '次'
+  }
+  var payTypeT = ''
+  switch(payType){
+    case '1':
+      payTypeT = '日结'
+      break;
+    case '2':
+      payTypeT = '周结'
+      break;
+    case '3':
+      payTypeT = '月结'
+      break;
+    default:
+      payTypeT = '完工结'
+  }
+  return salary + '元' + '/' + salaryTypeT + '|' + payTypeT
+}
+//设置时间发长短格式（只截取年月日）
+var dateFormatLength = function (dateStr) {
+  ans = dateStr.substring(0,10)
+  return ans
+}
+//将时间的连接方式改变为 /
+var dateFormatStyle = function (dateStr) {
+  // console.log("dateStr",dateStr)
+  ans = dateStr.substring(0,4) + '/' + dateStr.substring(5,7) + '/' + dateStr.substring(8,10)
+  return ans
+}
+var jobStatusFormat = function(dateStr,currentDate){
+  dateStr = dateStr.substring(0,4) + '/' + dateStr.substring(5,7) + '/' + dateStr.substring(8,10)
+  if(dateStr > currentDate){
+    return '未开始'
+  } else if(dateStr == currentDate){
+    return '进行中'
+  }else {
+    return '已结束'
+  }
+}
+
+
+
+//兼职详情页面的薪资设置
+var detailSalaryFormat = function(salary,salaryType){
+  var salaryTypeT = ''
+  switch (salaryType) {
+    case '1':
+      salaryTypeT = '小时'
+      break;
+    case '2':
+      salaryTypeT = '天'
+      break;
+    case '3':
+      salaryTypeT = '周'
+      break;
+    case '4':
+      salaryTypeT = '月'
+      break;
+    default:
+      salaryTypeT = '次'
+  }
+  return '￥' + salary + '/' + salaryTypeT
+}
+
+// 兼职结算方式设置
+var payTypeFormat = function(payType){
+  var payTypeT = ''
+  switch(payType){
+    case '1':
+      payTypeT = '日结'
+      break;
+    case '2':
+      payTypeT = '周结'
+      break;
+    case '3':
+      payTypeT = '月结'
+      break;
+    default:
+      payTypeT = '完工结'
+  }
+  return payTypeT;
+}
+
+var moneyFormat = function (money) {
+  // ans = '￥' + money.toFixed(2)
+  ans = '￥' + money
+  return ans;
+}
+//将标签字符串列表转换为列表
+var labelList = function(labelList){
+  ans = JSON.parse(labelList)
+  return ans
+}
+//截取问题详情的发布日期
+var questionCreatTime = function(dateStr){
+  ans = dateStr.substring(6,16)
+  return ans
+} 
+//截取时间的年月并加上14天
+var dayAdd = function(dateStr){
+  // ans = '问题最晚将于' + (dateStr.substring(6,7)) + '月' + (parseInt(dateStr.substring(8,10)) + 14) + '日00:00结题'
+  ans = '问题最晚将于 14 天后结题'
+  return ans
+}
+
+//wxml中跳转时传值转换
+var tranValue = function(objectStr){
+  ans = JSON.stringify(objectStr)
+  return ans
+}
+
+/*
+ * 导出
+ */
+module.exports = {
+  dateFormatLength: dateFormatLength,
+  dateFormatStyle:dateFormatStyle,
+  salaryFormat:salaryFormat,
+  detailSalaryFormat:detailSalaryFormat,
+  moneyFormat: moneyFormat,
+  labelList:labelList,
+  questionCreatTime:questionCreatTime,
+  dayAdd:dayAdd,
+  tranValue:tranValue,
+  payTypeFormat:payTypeFormat,
+  jobStatusFormat:jobStatusFormat,
+}

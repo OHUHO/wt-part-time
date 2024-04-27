@@ -1,0 +1,63 @@
+<!--components/AnswerQuestion/AnswerQuestion.wxml-->
+<!-- 回答问题的组件 -->
+<view class="answerQuestionContainer">
+
+    <!-- 评论区用户信息等设置 -->
+    <view class="header">
+        <view class="userInfo">
+            <image class="image" src="{{portrait}}"></image>
+            <label class="name">
+                <view>
+                    <text>  {{username}}</text>
+                </view>
+            </label>
+        </view>
+        <view class="creatTime">
+            <text class="time">{{publishTime}}</text>
+        </view>
+    </view>
+    <!-- 评论内容 -->
+    <view class="contents">
+        <text class="content">{{comment}}</text>
+    </view>
+    <!-- 功能区域（打赏，回复等） -->
+    <view class="select">
+        <!-- <view class="row" bindtap="reward">
+            <icon class="iconfont icon-dashanghongbao"></icon>
+            <text class="rowText"> 打赏</text>
+        </view> -->
+        <view class="row" bindtap="reply">
+            <icon class="iconfont icon-pinglun"></icon>
+            <text class="rowText"> 评论</text>
+        </view>
+    </view>
+    <!-- 评论框 -->
+    <view style="display:{{isShowReplyBox?'block':'none'}}">
+        <view class="replyBoxRow">
+            <view class="inputBox">
+                <input placeholder="请输入内容~" focus="{{isAutoFocus}}" type="text" value="{{replyContents}}" data-name="replyContents" bindblur="setInput"></input>
+            </view>
+            <view class="confirmReply" bindtap="confirmReply">
+                <text>回复</text>
+            </view>
+        </view>
+        
+    </view>
+    
+    <!-- 回复内容 -->
+    
+    <view class="reply">
+        <view wx:for="{{replyList}}" wx:key="index">
+            
+            <view class="replyHeader">
+                <text class="username">{{item.username}}</text>
+                <text class="replyTime">{{item.creatTime}}</text>
+            </view>
+            <text class="replyDetail">{{item.replyDetail}}</text>
+            
+        </view>
+    </view>
+
+    <view class="line"></view>
+
+</view>

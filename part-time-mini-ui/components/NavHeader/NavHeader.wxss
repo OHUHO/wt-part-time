@@ -1,0 +1,27 @@
+/* components/NavHeader/VavHeader.wxss */
+
+.header{
+  padding-bottom: 20rpx;
+  background-color: white;
+}
+.title{
+  font-size: 30rpx;
+  line-height: 80rpx;
+  color: #666;
+  margin-left: 10rpx;
+}
+.rowTitle{
+  align-items: center;
+}
+.text{
+  margin-left: 10rpx;
+}
+.more{
+  float: right;
+  border: 1rpx solid #666;
+  color: #666;
+  padding: 10rpx 20rpx;
+  font-size: 24rpx;
+  border-radius: 30rpx;
+  margin-right: 12rpx;
+}

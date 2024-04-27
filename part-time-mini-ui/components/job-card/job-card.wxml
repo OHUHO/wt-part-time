@@ -1,0 +1,23 @@
+<view class="header">
+  <view class="title">
+    <view class="userInfo">
+      <!-- <image class="image" src="{{portrait}}"></image> -->
+      <label class="name">
+        <text>{{name}}</text>
+      </label>
+    </view>
+    <text class="right">{{salary}}</text>
+  </view>
+  <view class="row">
+    <text class="workType" style="background-color:{{randomColorArr[0]}}">{{jobType}}</text>
+    <text class="right fontStyle">{{createTime}}</text>
+  </view>
+  <text class="row fontStyle">地点：{{address}}</text>
+  <view class="row">
+    <text class="fontStyle">时间：{{beginTime}} ~ {{endTime}}</text>
+    <text class="right more">详情 >></text>
+  </view>
+  <!-- <view class="row">
+    <text class="fontStyle">人数要求：{{count}}</text>
+  </view> -->
+</view>

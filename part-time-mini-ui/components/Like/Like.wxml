@@ -1,0 +1,25 @@
+<!--components/Like/Like.wxml-->
+<view>
+    <view class="box">
+        <view class="contents">
+            <image class="portrait" src="{{portrait}}"></image>
+            <view class="userinfo">
+                <text class="username">{{username}}</text>
+                <text class="introduction">{{introduction}}</text>
+            </view>
+        </view>
+        <block wx:if="{{isFollow}}">
+            <view class="attention" bindtap="attention">
+                <label>关注</label>
+            </view>
+        </block>
+        <block wx:if="{{!isFollow}}">
+            <view class="attention_ed" bindtap="attention">
+                <label>已关注</label>
+            </view>
+        </block>
+    
+    </view>
+    <view class="line"></view>
+</view>
+

@@ -1,0 +1,9 @@
+<!--components/NavHeader/VavHeader.wxml-->
+
+<view class="header">
+  <text class="title">{{title}}</text>
+  <view class="rowTitle">
+    <text class="text">{{nav}}</text>
+    <text class="more" bindtap="lookMore">查看更多</text>
+  </view>
+</view>

@@ -1,0 +1,67 @@
+{
+  "pages": [
+    "pages/welcome/welcome",
+    "pages/index/index",
+    "pages/experience/experience",
+    "pages/job/job",
+    "pages/me/me",
+    "pages/login/login",
+    "pages/default/default",
+    "pages/authentication/authentication",
+    "pages/publish-job/publish-job",
+    "pages/job-details/job-details",
+    "pages/my-job/my-job",
+    "pages/my-job-details/my-job-details",
+    "pages/my-join/my-join",
+    "pages/my-join-details/my-join-details",
+    "pages/my-authentication/my-authentication"
+  ],
+  "window": {
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle":"black",
+    "navigationStyle": "custom"
+  },
+  "tabBar": {
+    "selectedColor": "#f6a57f",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/static/tabbar/index.png",
+        "selectedIconPath": "/static/tabbar/index_ed.png"
+      },
+      {
+        "pagePath":"pages/job/job",
+        "text": "兼职",
+        "iconPath": "/static/tabbar/job.png",
+        "selectedIconPath": "/static/tabbar/job_ed.png"
+      },
+      {
+        "pagePath":"pages/experience/experience",
+        "text": "经验",
+        "iconPath": "/static/tabbar/experience.png",
+        "selectedIconPath": "/static/tabbar/experience_ed.png"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "我的",
+        "iconPath": "/static/tabbar/me.png",
+        "selectedIconPath": "/static/tabbar/me_ed.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "renderer": "skyline",
+  "rendererOptions": {
+    "skyline": {
+      "defaultDisplayBlock": true,
+      "disableABTest": true,
+      "sdkVersionBegin": "3.0.0",
+      "sdkVersionEnd": "15.255.255"
+    }
+  },
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

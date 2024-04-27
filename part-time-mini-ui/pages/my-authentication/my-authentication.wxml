@@ -1,0 +1,2 @@
+<navigation-bar title="我的认证" back="{{true}}" color="black" background="#FFF"></navigation-bar>
+

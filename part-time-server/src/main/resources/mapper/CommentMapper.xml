@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.walker.part.mapper.CommentMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.walker.part.entity.Comment">
+        <id column="comment_id" property="commentId" />
+        <result column="experience_id" property="experienceId" />
+        <result column="from_user_id" property="fromUserId" />
+        <result column="from_user_name" property="fromUserName" />
+        <result column="to_user_id" property="toUserId" />
+        <result column="to_user_name" property="toUserName" />
+        <result column="content" property="content" />
+        <result column="comment_time" property="commentTime" />
+        <result column="status" property="status" />
+        <result column="logic_delete" property="logicDelete" />
+        <result column="create_time" property="createTime" />
+        <result column="create_user_id" property="createUserId" />
+        <result column="create_user_name" property="createUserName" />
+        <result column="update_time" property="updateTime" />
+        <result column="update_user_id" property="updateUserId" />
+        <result column="update_user_time" property="updateUserTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        comment_id, experience_id, from_user_id, from_user_name, to_user_id, to_user_name, content, comment_time, status, logic_delete, create_time, create_user_id, create_user_name, update_time, update_user_id, update_user_time
+    </sql>
+
+</mapper>

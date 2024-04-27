@@ -1,0 +1,188 @@
+/* pages/me/me.wxss */
+page{
+  background-color: whitesmoke;
+}
+.me-container {
+  width: 100%;
+  height: 100%;
+}
+/*头部区域*/
+.me-container .top_view {
+  height: 540rpx;
+  position: relative;
+  padding: 100rpx 30rpx 0;
+}
+.top_view .background {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  filter: blur(1px);
+}
+.userinfo {
+  display: flex;
+  flex-direction:row;
+  align-items:center;
+  color: rgb(61, 59, 59);
+}
+.avatarurl {
+  overflow: hidden;
+  width: 150rpx;
+  height: 150rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+  opacity: 0.9;
+}
+.nickname{
+  position: relative; 
+  left: 8rpx; 
+  top: 0rpx;
+  background-color: transparent;
+  border:none;
+  color: #5f5d5d;
+  font-size: larger;
+}
+
+/*完善信息区域*/
+.vipcard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(left, red, black);
+  background: rgba(0, 0, 0, .7);
+  height: 260rpx;
+  color: #f6a57f;
+  border-radius: 16rpx 16rpx 0 0;
+  padding: 20rpx 24rpx;
+}
+.vipcard .card-background{
+  position:absolute;
+  top: 20rpx;
+  right: 0;
+  width: 380rpx;
+  height: 260rpx;
+}
+.vipcard .title{
+  font-size: 34rpx;
+  margin-top: 10rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.vipcard .title .button{
+  width: 132rpx;
+  height: 40rpx;
+  text-align: center;
+  line-height: 40rpx;
+  font-size: 22rpx;
+  color: #36343c;
+  border-radius: 20px;
+  background: #f6a57f;
+  z-index: 1;
+}
+
+.vipcard .description{
+  font-size: 24rpx;
+  color: #f6a57f;
+  margin-top: 10rpx;
+}
+
+/*个人导航中心*/
+.pull-down{
+  margin-top: -150rpx;
+  /* padding: 0 30rpx; */
+  position:relative;
+  height: 100%;
+  padding-bottom: 20rpx;
+}
+.pull-down .arc{
+  position:absolute;
+  left: 0;
+  top: -34rpx;
+  width: 100%;
+  height: 36rpx;
+}
+.pull-down .number {
+  display: flex;
+  background: #fff;
+  padding: 20rpx 0;
+  border-radius: 15rpx;
+  margin-left: 15rpx;
+  margin-right: 15rpx;
+  
+}
+.number .row {
+  width: 25%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.number .row .iconfont {
+  font-size: 50rpx;
+  color: #f6a57f;
+  line-height: 70rpx;
+}
+.number .row text:last-child {
+  font-size: 22rpx;
+}
+
+/*分割线样式*/
+.line{
+  background: whitesmoke;
+  /* width: 100%; */
+  width: 94%;
+  height: 5rpx;
+  margin: 15rpx 0rpx;
+  margin-top: 15rpx;
+}
+
+/* 个人列表中心 */
+.personalContent {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  background-color: white;
+  margin-top: 15rpx;
+  font-size: 34rpx;
+  height: auto;
+  border-radius: 20rpx;
+  margin-left: 15rpx;
+  margin-right: 15rpx;
+  padding-top: 15rpx;
+  padding-bottom: 15rpx;
+}
+.personalContent .row{
+  width: 96%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 15rpx;
+}
+.personalContent .button{
+  display: flex;
+  flex-direction: row;
+  width: 94%;
+  margin: 15rpx;
+}
+.personalContent .button .row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0rpx;
+  width: 100%;
+  padding: 0rpx 0;
+  font-size: 34rpx;
+  font-weight: 500;
+  background: white; 
+}
+.personalContent .row .left{
+  padding: 15rpx;
+}
+.personalContent .row .right{
+  color: #8c8c8c;
+}

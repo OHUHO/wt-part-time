@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.walker.part.mapper.AdminInfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.walker.part.entity.AdminInfo">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="avatar" property="avatar" />
+        <result column="password" property="password" />
+        <result column="introduction" property="introduction" />
+        <result column="status" property="status" />
+        <result column="logic_delete" property="logicDelete" />
+        <result column="create_time" property="createTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, name, avatar, password, introduction, status, logic_delete, create_time
+    </sql>
+
+</mapper>

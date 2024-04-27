@@ -1,0 +1,96 @@
+/* pages/authentication/authentication.wxss */
+.form {
+  background-color: var(--white);
+  padding: 1rpx 30rpx;
+  display: flex;
+  align-items: center;
+  /* min-height: 100rpx; */
+  justify-content: space-between;
+}
+.title {
+  text-align: justify;
+  padding-right: 30rpx;
+  font-size: 30rpx;
+  position: relative;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.reminder {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-bottom: 1rpx solid #eee;
+  height:100rpx;
+  font-size: 28rpx;
+  color: #555;
+}
+.tips{
+  font-size: 24rpx;
+  color: rgb(104, 104, 104);
+  margin-bottom: 26rpx;
+}
+
+/*选择图片区域*/
+.image-list{
+  padding: 24rpx;
+  width: 790rpx; 
+  height: 270rpx; 
+  display: block; 
+  box-sizing: border-box
+}
+.q-image-wrap{
+  width: 215rpx;
+  height: 215rpx;
+  border: 3px solid #f0f0f0;
+  float: left;
+  margin-right: 10rpx;
+  position: relative;
+  overflow: hidden;
+}
+.q-image-remover{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 100%;
+  background: #8470FF;
+  position: absolute;
+  top:-50rpx;
+  right:-50rpx;
+}
+.q-image-remover icon{
+  position: absolute;
+  left:12rpx;
+  bottom:12rpx;
+  color:#fff;
+}
+.uploadImgBtn{
+  width: 224rpx;
+  height: 224rpx;
+  text-align: center;
+  line-height: 222rpx;
+  border: 3rpx solid #bfc0bf;
+  float: left;
+}
+.uploadImgBtn icon{
+  font-size: 140rpx;
+  color: rgb(221, 218, 218);
+}
+.radio{
+  display: flex;
+  padding: 1rpx 10rpx;
+  align-items: center;
+  min-height: 10rpx;
+}
+.btn {
+  width: 90%;
+  margin-top: 70rpx;
+  margin-bottom: 70rpx;
+  background-color: #f6a57f;
+  color: white;
+  font-size: 33rpx;
+  border-radius: 13rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
