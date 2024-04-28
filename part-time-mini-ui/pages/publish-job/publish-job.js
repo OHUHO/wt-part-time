@@ -28,9 +28,9 @@ Page({
       // 招聘人数
       count:'',
       // 工作开始时间
-      beginTime:new Date().getFullYear() + '-'+ new Date().getMonth().toString().padStart(2, '0') + '-' + new Date().getDate().toString().padStart(2, '0'),
+      beginTime:new Date().getFullYear() + '-'+ (new Date().getMonth() + 1).toString().padStart(2, '0') + '-' + new Date().getDate().toString().padStart(2, '0'),
       // 工作结束时间
-      endTime:new Date().getFullYear() + '-'+ new Date().getMonth().toString().padStart(2, '0') + '-' + new Date().getDate().toString().padStart(2, '0'),
+      endTime:new Date().getFullYear() + '-'+ (new Date().getMonth() + 1).toString().padStart(2, '0') + '-' + new Date().getDate().toString().padStart(2, '0'),
       // 工作地点
       address:'',
       // 创建人ID

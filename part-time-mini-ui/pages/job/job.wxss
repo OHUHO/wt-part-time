@@ -1,7 +1,14 @@
-/* pages/job/job.wxss */
-page{
+page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
   background-color: whitesmoke;
 }
+.scrollarea {
+  flex: 1;
+  overflow-y: hidden;
+}
+
 .store-info{
   display: flex;
   flex-direction: row;

@@ -1,0 +1,42 @@
+<navigation-bar title="兼职互评" back="{{ true}}" color="black" background="#FFF"></navigation-bar>
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="item">
+    <text class="title">为「{{ name }}」评分</text>
+    <view class="content">
+      <view class="stars">
+        <view class="star-item" 
+          wx:for="{{stars}}" 
+          wx:key="index"
+          data-index="{{index}}"
+          bindtap="selectPoint">
+          <image src="{{item}}"/>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="item">
+    <text class="title">评价内容</text>
+    <view class="content">
+      <textarea class="textarea" 
+        placeholder="请输入评价内容～"
+        maxlength="{{15000}}"
+        value="{{reviews.content}}"
+        data-key="reviews.content"
+        bindinput="setInput"
+        />
+    </view>
+  </view>
+  <view class="item" wx:if="{{reviews.point === 1}}">
+    <text class="title">提交材料</text>
+    <view class="content">
+      <input disabled
+        class="input"
+        placeholder="点击上传认证材料" 
+        value="{{papersFilesName}}" 
+        bindtap="uploadFiles"/>
+    </view>
+  </view>
+
+  <button class="submit" bindtap="submit">提交</button>
+</scroll-view>

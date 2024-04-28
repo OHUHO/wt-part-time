@@ -6,8 +6,8 @@
     <resultMap id="BaseResultMap" type="com.walker.part.entity.Reviews">
         <id column="reviews_id" property="reviewsId" />
         <result column="job_id" property="jobId" />
-        <result column="user_id" property="userId" />
-        <result column="user_name" property="userName" />
+        <result column="from_id" property="fromId" />
+        <result column="to_id" property="toId" />
         <result column="point" property="point" />
         <result column="content" property="content" />
         <result column="additional" property="additional" />
@@ -23,7 +23,7 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        reviews_id, job_id, user_id, user_name, point, content, additional, status, logic_delete, create_time, create_user_id, create_user_name, update_time, update_user_id, update_user_name
+        reviews_id, job_id, from_id, to_id, point, content, additional, status, logic_delete, create_time, create_user_id, create_user_name, update_time, update_user_id, update_user_name
     </sql>
 
 </mapper>

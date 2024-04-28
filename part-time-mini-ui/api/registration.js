@@ -16,7 +16,7 @@ export function registrationEd(jobId,userId){
   })
 }
 // 保存兼职报名信息
-export function saveJRegistration(data){
+export function saveRegistration(data){
   return request({
     url:'/registration/save',
     method: 'post',

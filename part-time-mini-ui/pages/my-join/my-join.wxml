@@ -4,7 +4,7 @@
   <view class="my-job-container">
     <!-- <job-card/> -->
     <view class="card-item" 
-      wx:for="{{jobs}}" 
+      wx:for="{{jobs}}"
       wx:key="index"
       bindtap="details"
       data-value="{{item.jobId}}">
@@ -17,7 +17,7 @@
         <text class="time">开始: {{ filter.dateFormatStyle(item.beginTime) }}</text>
       </view>
       <view class="card-footer">
-        <text class="status">状态: {{filter.jobStatusFormat(item.beginTime,currentTime)}}</text>
+        <text class="status">状态: {{filter.jobStatusFormat(item.beginTime,item.endTime,currentTime)}}</text>
         <text class="details">详情 >></text>
       </view>
     </view>

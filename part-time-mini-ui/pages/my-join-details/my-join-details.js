@@ -1,18 +1,23 @@
 import { getById } from "../../api/job"
-import { registrationEd, saveJRegistration } from "../../api/registration"
+import { getByMultiId } from "../../api/reviews"
 
 Page({
   data: {
     job:null,
+    // 用户评价信息
+    reviews:null,
     userInfo:wx.getStorageSync('userInfo'),
-    // 已经报名兼职
-    isRegistration:false
+    stars:[
+      '../../static/images/yellowStar.png',
+      '../../static/images/yellowStar.png',
+      '../../static/images/yellowStar.png',
+      '../../static/images/yellowStar.png',
+      '../../static/images/yellowStar.png',
+    ]
   },
   onLoad(options) {
-    // console.log(options.jobId)
     this.getJob(options.jobId)
-    // 查询当前用户是否已报名该活动
-    this.getRegistration(options.jobId)
+    // this.getReviews(options.jobId)
   },
   // 获取兼职详情
   async getJob(jobId){
@@ -22,62 +27,69 @@ Page({
         job:res.data
       })
     }
+    // 获取评价信息
+    this.getReviews()
   },
-  // 获取兼职报名信息
-  async getRegistration(jobId){
-    let res = await registrationEd(jobId,this.data.userInfo.id)
-    if(res.code === 200 && res.data){
+
+  // 查询是否已评价
+  async getReviews(){
+    // 查询用户是否已经进行了评价
+    let res = await getByMultiId(this.data.job.jobId,this.data.userInfo.id,this.data.job.businessId)
+    if(res.code == 200 && res.data != null){
       this.setData({
-        isRegistration:true
+        reviews:res.data
       })
+      // 设置等级
+      this.setStar(res.data.point - 1)
     }
   },
 
-  reminder(){
-    wx.showToast({
-      title: '待添加...',
-      icon:'none'
+  // 设置评分
+  setStar(index){
+    let stars = this.data.stars;
+    for(var i = 0; i < stars.length; i ++){
+      if(i <= index){
+        stars[i] = '../../static/images/yellowStar.png'
+      }else{
+        stars[i] = '../../static/images/grayStar.png'
+      }
+    }
+    this.setData({
+      stars:stars,
     })
   },
-  // 联系商家
-  contact(e){
-    wx.showModal({
-      title: '提示',
-      content: '是否联系 15284734518',
-      cancelText: '取消',
-      confirmText: '确定',
-      confirmColor: '#faa680',
-      success: (result) => {
-        if (result.confirm) {
-          wx.makePhoneCall({
-            phoneNumber: '15284734518',
-          })
-        }
-      },
-    });
-  },
-  // 报名
-  async join(){
-    let data = {
-      jobId:this.data.job.jobId,
-      userId:this.data.userInfo.id,
-    }
-    let res = await saveJRegistration(data)
-    if(res.code === 200){
-      this.setData({
-        ['job.registered']:this.data.job.registered + 1
-      })
+  
+  // 去评价
+  goReviews(){
+    let endTime = this.data.job.endTime
+    endTime = endTime.substring(0,4) + '/' + endTime.substring(5,7) + '/' + endTime.substring(8,10)
+    let currentTime = new Date().getFullYear() + '/'+ (new Date().getMonth() + 1).toString().padStart(2, '0') + '/' + new Date().getDate().toString().padStart(2, '0')
+    if(endTime >= currentTime){
       wx.showToast({
-        title: '报名成功!',
-        icon: 'success',
-        duration: 2000,
-        success() {
-          setTimeout(function () {
-            wx.navigateBack()
-          }, 3000);
-        }
+        title: '活动未结束,暂不能进行评价~',
+        icon:'none',
+        duration:3000
       })
+      return
     }
+    if(this.data.reviews != null){
+      wx.showToast({
+        title: '您已评价过了~',
+        icon:'none',
+        duration:3000
+      })
+      return
+    }
+    let data = {
+      fromId:this.data.userInfo.id,
+      toId:this.data.job.businessId,
+      jobId:this.data.job.jobId,
+      name:this.data.job.storeName
+    }
+    console.log("user to business reviews data - ", data)
+    wx.navigateTo({
+      url: '/pages/job-reviews/job-reviews?data=' + JSON.stringify(data),
+    })
   }
 
 })

@@ -83,20 +83,129 @@
             :title="dialogTitle"
             :visible.sync="dialogVisible"
             :close-on-click-modal="false"
-            width="50%"
+            width="66%"
             center>
-            代办：兼职报名用户信息
             <el-table :data="registration">
-                <el-table-column property="date" label="日期" width="150"></el-table-column>
-                <el-table-column property="name" label="姓名" width="200"></el-table-column>
-                <el-table-column property="address" label="地址"></el-table-column>
+                <el-table-column property="username" label="姓名" width="100"/>
+                <el-table-column property="registrationTime" label="报名时间" width="160"/>
+                <el-table-column label="用户评价">
+                    <template slot-scope="scope">
+                        <div class="inner-cloumn" v-if="scope.row.reviewsToUser != null">
+                            <el-descriptions class="margin-top" :column="1" size="mini" border>
+                                <el-descriptions-item>
+                                    <template slot="label">
+                                        <i class="el-icon-user"></i>等级
+                                    </template>
+                                    <el-rate v-model="scope.row.reviewsToUser.point" disabled/>
+                                </el-descriptions-item>
+                                <el-descriptions-item>
+                                    <template slot="label">
+                                        <i class="el-icon-user"></i>评价
+                                    </template>
+                                    {{ scope.row.reviewsToUser.content }}
+                                </el-descriptions-item>
+                                <el-descriptions-item>
+                                    <template slot="label">
+                                        <i class="el-icon-user"></i>状态
+                                    </template>
+                                    <el-tooltip class="item" effect="dark" content="点击修改状态" placement="right">
+                                        <el-popover placement="top" trigger="click">
+                                            <div style="text-align: right; margin: 0">
+                                                <el-button type="primary" plain size="mini"  @click="updateStatus(2)">通&nbsp;过</el-button>
+                                                <el-button type="danger" plain size="mini" @click="updateStatus(3)">不通过</el-button>
+                                            </div>
+                                            <el-tag @click="updateStatusBtn(scope.row.reviewsToUser)" 
+                                                size="mini" 
+                                                type="info"
+                                                slot="reference"
+                                                v-if="scope.row.reviewsToUser.status == 1" 
+                                                style="cursor: pointer;">待审核
+                                            </el-tag>
+                                            <el-tag @click="updateStatusBtn(scope.row.reviewsToUser)" 
+                                                size="mini"
+                                                slot="reference"
+                                                v-else-if="scope.row.reviewsToUser.status == 2" 
+                                                style="cursor: pointer;">已通过
+                                            </el-tag>
+                                            <el-tag @click="updateStatusBtn(scope.row.reviewsToUser)" 
+                                                size="mini" 
+                                                type="danger"
+                                                slot="reference"
+                                                v-else 
+                                                style="cursor: pointer;">未通过
+                                            </el-tag>
+                                        </el-popover>
+                                    </el-tooltip>
+                                </el-descriptions-item>
+                            </el-descriptions>
+                        </div>
+                        <div class="inner-cloume" v-else>暂未评价</div>
+                    </template>
+                </el-table-column>
+                <el-table-column label="商家评价">
+                    <template slot-scope="scope">
+                        <div class="inner-cloumn" v-if="scope.row.reviewsToBusiness != null">
+                            <el-descriptions class="margin-top" :column="1" size="mini" border>
+                                <el-descriptions-item>
+                                    <template slot="label">
+                                        <i class="el-icon-user"></i>等级
+                                    </template>
+                                    <el-rate v-model="scope.row.reviewsToBusiness.point" disabled/>
+                                </el-descriptions-item>
+                                <el-descriptions-item>
+                                    <template slot="label">
+                                        <i class="el-icon-user"></i>评价
+                                    </template>
+                                    {{ scope.row.reviewsToBusiness.content }}
+                                </el-descriptions-item>
+                                <el-descriptions-item>
+                                    <template slot="label">
+                                        <i class="el-icon-user"></i>状态
+                                    </template>
+                                    <el-tooltip class="item" effect="dark" content="点击修改状态" placement="right">
+                                        <el-popover placement="top" trigger="click">
+                                            <div style="text-align: right; margin: 0">
+                                                <el-button type="primary" plain size="mini"  @click="updateStatus(2)">通&nbsp;过</el-button>
+                                                <el-button type="danger" plain size="mini" @click="updateStatus(3)">不通过</el-button>
+                                            </div>
+                                            <el-tag @click="updateStatusBtn(scope.row.reviewsToBusiness)" 
+                                                size="mini" 
+                                                type="info"
+                                                slot="reference"
+                                                v-if="scope.row.reviewsToBusiness.status == 1" 
+                                                style="cursor: pointer;">待审核
+                                            </el-tag>
+                                            <el-tag @click="updateStatusBtn(scope.row.reviewsToBusiness)" 
+                                                size="mini"
+                                                slot="reference"
+                                                v-else-if="scope.row.reviewsToBusiness.status == 2" 
+                                                style="cursor: pointer;">已通过
+                                            </el-tag>
+                                            <el-tag @click="updateStatusBtn(scope.row.reviewsToBusiness)" 
+                                                size="mini" 
+                                                type="danger"
+                                                slot="reference"
+                                                v-else 
+                                                style="cursor: pointer;">未通过
+                                            </el-tag>
+                                        </el-popover>
+                                    </el-tooltip>
+                                </el-descriptions-item>
+                            </el-descriptions>
+                        </div>
+                        <div class="inner-cloume" v-else>暂未评价</div>
+                    </template>
+                </el-table-column>
             </el-table>
             <!-- DOTO：分页 -->
         </el-dialog>
+
     </div>
   </template>
 <script>
 import { getJob,deleteJob } from '@/api/job';
+import { getRegistration } from '@/api/registration';
+import { saveReviews } from '@/api/reviews';
 
   export default {
     name:'JobInfo',
@@ -112,26 +221,9 @@ import { getJob,deleteJob } from '@/api/job';
         },
         total:0,
         dialogTitle:'',
+        // 报名信息弹窗
         dialogVisible: false,
-        registration: [
-            {
-            date: '2016-05-02',
-            name: '王小虎',
-            address: '上海市普陀区金沙江路 1518 弄'}, 
-            {
-                date: '2016-05-04',
-                name: '王小虎',
-                address: '上海市普陀区金沙江路 1518 弄'
-                }, {
-                date: '2016-05-01',
-                name: '王小虎',
-                address: '上海市普陀区金沙江路 1518 弄'
-                }, {
-                date: '2016-05-03',
-                name: '王小虎',
-                address: '上海市普陀区金沙江路 1518 弄'
-                }
-        ],
+        registration: [],
       }
     },
     mounted(){
@@ -169,10 +261,9 @@ import { getJob,deleteJob } from '@/api/job';
             })
         },
         details(job){
-            console.log(job)
+            // console.log("job----",job)
             // 查询兼职报名信息
-            // TODO
-            // this.registration = res.data
+            this.getRegistration(job.jobId)
             this.dialogTitle = job.name + " 报名详情"
             this.dialogVisible = true
         },
@@ -183,6 +274,35 @@ import { getJob,deleteJob } from '@/api/job';
         handleCurrentChange(val) {
             this.condition.current = val
             this.getJob()
+        },
+
+        // 查询兼职报名信息
+        getRegistration(jobId){
+            let condition = {
+                current:1,
+                size:9999,
+                jobId:jobId
+            }
+            getRegistration(condition).then(resp => {
+                if(resp.code === 200){
+                    this.registration = resp.data.records
+                    // console.log(resp.data.records)
+                }
+            })
+        },
+        // 修改评价状态弹窗
+        updateStatusBtn(reviews){
+            // console.log("reviews -- ",reviews)
+            this.reviews = reviews
+        },
+        updateStatus(status){
+            // console.log("status",status)
+            this.reviews.status = status
+            saveReviews(this.reviews).then(resp => {
+                if(resp.code === 200){
+                    this.getRegistration(this.reviews.jobId)
+                }
+            })
         }
     }
   }

@@ -8,89 +8,52 @@ page {
   flex: 1;
   overflow-y: hidden;
 }
-.background {
-  width: 100%; 
-  height: 280rpx; 
-  position: relative;
-  /* z-index: -1; */
-}
-.radius{
-  background-color:white;
-  width: 100%; 
-  height: 160rpx;
-  margin-top: -80rpx;
-  position: absolute;
-  z-index: 1;
-  /* border-radius: 100rpx; */
-  border-top-left-radius: 66rpx;
-  border-top-right-radius: 66rpx;
-}
 
-.title{
+.job-header{
+  background-color:white;
+  margin: 16rpx;
+  border-radius: 20rpx;
+  padding: 20rpx;
+}
+.job-header .title{
   display: flex;
   justify-content: space-between;
-  margin-top: 40rpx;
-  font-size: 45rpx;
+  margin-top: 20rpx;
+  font-size: 40rpx;
   font-weight:540;
-  padding: 10rpx 40rpx;
 }
-.title .salary{
+.job-header .title .salary{
   color: #f7996e;
 }
-.label{
-  height: 40rpx;
+.job-header .body{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: rgb(173, 169, 169);
+  margin: 16rpx 0;
+  font-size: 26rpx;
+}
+.job-header .body .label{
   width: 120rpx;
   border-radius: 50%; 
   border: solid 1px;
   border-radius: 5px; 
-  font-size: 26rpx;
   color: rgb(173, 169, 169);
-  margin-left: 40rpx;
-  display: block;
-  box-sizing: border-box;
-  justify-content: center;
 }
-.label text{
+.job-header .body .label text{
   display: flex;
   justify-content: center;
 }
-.content{
-  background-color: whitesmoke;
-  margin-top: 80rpx;
-  width: 100%;
-  /* height: 2000rpx;  */
-  display: flex;
-  flex-direction:column;
+.job-content{
+  font-size: 28rpx;
+  color: rgb(150, 148, 148);
 }
-.reminder{
-  display: flex;
-  flex-direction: row;
-  background-color: #f7ccb8;
-  padding: 20rpx 20rpx;
-  margin: 20rpx;
-  border-radius: 20rpx;
-  justify-content: space-between
-}
+
 .iconfont{
   color: red;
   margin-top: -10rpx;
 }
-.text0{
-  /* color: #f6a57f; */
-  color: red;
-}
-.text1{
-  font-size: 28rpx;
-  color: rgb(121, 119, 119);
-}
-.text2{
-  /* display: flex;
-  flex-direction: row; */
-  /* justify-content:right */
-  /* position: fixed;
-  right: 50rpx; */
-  color: red;
-}
+
 /*分割线样式*/
 .line{
   background: whitesmoke;
@@ -98,18 +61,16 @@ page {
   height: 5rpx;
   margin: 30rpx 0rpx;
   margin-top: 30rpx;
-  /* margin-right: 30rpx; */
  }
-.information{
+.job-body{
   display: flex;
   flex-direction:column;
   background-color: white;
   padding: 20rpx 20rpx;
   margin: 2rpx 20rpx;
   border-radius: 20rpx;
-  
 }
-.info0{
+.content-item{
   display: flex;
   flex-direction: column;
 }
@@ -120,120 +81,83 @@ page {
   color: rgb(150, 148, 148);
 }
 
-.headline{
+.job-registration {
+  margin: 2rpx 20rpx;
+  /* padding: 20rpx; */
+}
+.job-registration .head-title{
   color: black;
   font-weight: 500;
-  font-size: 35rpx;
-  margin-left: 35rpx;
-  margin-top: 30rpx;
-  margin-bottom: 30rpx;
+  font-size: 32rpx;
+  margin: 30rpx 6rpx;
 }
-
-.positionContent{
-  display: flex;
-  flex-direction:column;
+.registration-container {
   background-color: white;
-  padding: 20rpx 20rpx;
-  margin: 2rpx 20rpx;
+  /* height: 200rpx; */
   border-radius: 20rpx;
+  padding: 18rpx;
 }
-.contentShow{
-  margin-left: 5%;
-  margin-right: 5%;
-  margin-top: 20rpx;
-  font-weight:500;
-  font-size: 30rpx;
-  color: rgb(32, 3, 3);
-  display: -webkit-box;
-  text-overflow: ellipsis;
-  -webkit-box-orient:vertical;
-  overflow:hidden;
-}
-.ellipsis_text{
-  width: 100%;
-  font: 16rpx;
-  text-align: center;
-  color: #faa680;
-  margin-top: 10rpx;
-  margin-bottom: 5rpx;
-}
-.publisher{
-  display: flex;
-  flex-direction:column;
-  background-color: white;
-  padding: 20rpx 20rpx;
-  margin: 2rpx 20rpx;
-  border-radius: 20rpx;
-}
-.userInfo {
-  display: flex;
-  flex-direction:row;
-  align-items:center;
-}
-.image{
-  width: 100rpx;
-  height: 100rpx;
-  border-radius: 50rpx;
-  margin-right: 20rpx;
-}
-.authentication{
-  font-size: 26rpx;
-  color: rgb(173, 169, 169);
-}
-
-.other{
-  height: 100rpx;
-}
-
-.bottom {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  z-index: 999;
-}
-
-.main {
+.registration-container .item{
   display: flex;
   flex-direction: row;
-  height: 120rpx;
-  /* text-align: center;
-  font-size: 40rpx;
-  padding: 20rpx;
-  font-weight: 1000;
-  color: white; */
-  background-color: white;
-  opacity: 1;
-  /* background-color:#f6a57f; */
-}
-.contact{
-  display: flex;
-  flex-direction: column;
-  color: black;
-  font-size: 30rpx;
-  font-weight: 100;
-  margin-left: 60rpx;
-  margin-top: 35rpx;
-  
-}
-.iconContact{
-  display: flex;
-  justify-content: center;
-  color:#faa680;
-}
-.enroll{
-  display: flex;
-  height: 35rpx;
-  width: 450rpx;
-  font-size: 35rpx;
-  padding: 20rpx;
-  font-weight: 500;
-  color: black;
-  padding: 30rpx;
-  background-color: #faa680;
-  margin-top: 15rpx;
-  margin-left: 50rpx;
-  border-radius: 20rpx; 
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  margin: 16rpx 0;
+}
+.registration-container .userinfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.registration-container .userinfo .portrait {
+  width: 66rpx;
+  height: 66rpx;
+  border-radius: 50%;
+}
+.registration-container .userinfo .username {
+  font-size: 30rpx;
+  /* margin-left: 20rpx; */
+  color: rgb(100, 99, 99);
+}
+.registration-container .reviews {
+  display: flex;
+}
+.registration-container .reviews button{
+  width: 116rpx;
+  font-size: 26rpx;
+  padding: 6rpx 0;
+  margin: 0;
+  font-weight: unset;
+  border: solid whitesmoke 1rpx;
+  background-color: unset;
+  color: rgb(95, 94, 94);
 }
 
+.registration-container .item .info{
+  font-size: 30rpx;
+  color: rgb(141, 140, 140);
+}
+.reviews{
+  display: flex;
+  flex-direction: column;
+}
+.reviews .revires-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: rgb(141, 140, 140);
+}
+.reviews .revires-item .label{
+  font-size: 30rpx;
+  margin-right: 20rpx;
+  line-height: 66rpx;
+}
+.reviews .revires-item .stars{
+  display: flex;
+  flex-direction: row;
+}
+.stars .star-item image{
+  width: 44rpx;
+  height: 44rpx;
+  margin-right: 24rpx;
+}

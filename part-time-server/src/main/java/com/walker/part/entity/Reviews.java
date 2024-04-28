@@ -38,14 +38,14 @@ public class Reviews implements Serializable {
     private String jobId;
 
     /**
-     * 评价用户ID
+     * 评价人ID
      */
-    private String userId;
+    private String fromId;
 
     /**
-     * 评价用户姓名
+     * 被评价人ID
      */
-    private String userName;
+    private String toId;
 
     /**
      * 评分；1，2，3，4，5

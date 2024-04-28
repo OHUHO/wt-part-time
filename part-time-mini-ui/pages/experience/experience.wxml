@@ -1,2 +1,19 @@
-<!--pages/experience/experience.wxml-->
-<text>pages/experience/experience.wxml</text>
+<wxs src='/utils/filter.wxs' module='filter'></wxs>
+<navigation-bar title="经验" back="{{false}}" color="black" background="#FFF"></navigation-bar>
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="experience-container">
+    <view class="top-bg">
+      <image src="/static/images/ta.jpg"></image>
+    </view>
+    <view class="user-container">
+      <view class="userInfo">
+        <image class="image" src="{{userInfo.portrait}}"></image>
+        <label class="name">{{userInfo.username}}</label>
+      </view>
+      <view class="publish-btn">
+        <view class="btn-text" bindtap="publish">去发布 ></view>
+      </view>
+    </view>
+  </view>
+
+</scroll-view>

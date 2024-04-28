@@ -45,11 +45,13 @@ var dateFormatStyle = function (dateStr) {
   ans = dateStr.substring(0,4) + '/' + dateStr.substring(5,7) + '/' + dateStr.substring(8,10)
   return ans
 }
-var jobStatusFormat = function(dateStr,currentDate){
-  dateStr = dateStr.substring(0,4) + '/' + dateStr.substring(5,7) + '/' + dateStr.substring(8,10)
-  if(dateStr > currentDate){
+var jobStatusFormat = function(beginTime,endTime, currentTime){
+  beginTime = beginTime.substring(0,4) + '/' + beginTime.substring(5,7) + '/' + beginTime.substring(8,10)
+  endTime = endTime.substring(0,4) + '/' + endTime.substring(5,7) + '/' + endTime.substring(8,10)
+  console.log("current time",currentTime)
+  if(currentTime < beginTime){
     return '未开始'
-  } else if(dateStr == currentDate){
+  } else if(currentTime >= beginTime && currentTime <= endTime){
     return '进行中'
   }else {
     return '已结束'

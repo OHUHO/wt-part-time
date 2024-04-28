@@ -1,5 +1,5 @@
 import { getById } from "../../api/job"
-import { registrationEd, saveJRegistration } from "../../api/registration"
+import { registrationEd, saveRegistration } from "../../api/registration"
 
 Page({
   data: {
@@ -62,7 +62,7 @@ Page({
       jobId:this.data.job.jobId,
       userId:this.data.userInfo.id,
     }
-    let res = await saveJRegistration(data)
+    let res = await saveRegistration(data)
     if(res.code === 200){
       this.setData({
         ['job.registered']:this.data.job.registered + 1

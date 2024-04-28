@@ -60,12 +60,6 @@ export const constantRoutes = [
         meta: { title: '兼职信息', icon: 'table' }
       },
       {
-        path: 'reviews',
-        name: 'Reviews',
-        component: () => import('@/views/job/reviews/index'),
-        meta: { title: '兼职评价', icon: 'form' }
-      },
-      {
         path: 'type',
         name: 'Type',
         component: () => import('@/views/job/type/index'),

@@ -8,7 +8,7 @@ Page({
       size:9999,
       userId:wx.getStorageSync('userInfo').id
     },
-    currentTime:new Date().getFullYear() + '/'+ new Date().getMonth().toString().padStart(2, '0') + '/' + new Date().getDate().toString().padStart(2, '0')
+    currentTime:new Date().getFullYear() + '/'+ (new Date().getMonth() + 1).toString().padStart(2, '0') + '/' + new Date().getDate().toString().padStart(2, '0')
   },
 
   onLoad(options) {

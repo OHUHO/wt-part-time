@@ -11,6 +11,20 @@
     "miniprogram": {
       "list": [
         {
+          "name": "TB::经验",
+          "pathName": "pages/experience/experience",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "兼职互评",
+          "pathName": "pages/job-reviews/job-reviews",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "我参加的兼职",
           "pathName": "pages/my-join/my-join",
           "query": "",
