@@ -29,19 +29,19 @@ page{
 }
 .avatarurl {
   overflow: hidden;
-  width: 150rpx;
-  height: 150rpx;
+  width: 140rpx;
+  height: 140rpx;
   margin: 20rpx;
   border-radius: 50%;
   opacity: 0.9;
 }
 .nickname{
   position: relative; 
-  left: 8rpx; 
+  left: 0rpx; 
   top: 0rpx;
   background-color: transparent;
   border:none;
-  color: #5f5d5d;
+  color: #474747;
   font-size: larger;
 }
 

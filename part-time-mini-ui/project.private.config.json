@@ -11,6 +11,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "发布经验",
+          "pathName": "pages/publish-experience/publish-experience",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "TB::经验",
           "pathName": "pages/experience/experience",
           "query": "",

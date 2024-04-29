@@ -1,1 +1,66 @@
-/* pages/publish-experience/publish-experience.wxss */
+page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: whitesmoke;
+  /* background-color: red; */
+}
+.scrollarea {
+  flex: 1;
+  overflow-y: hidden;
+}
+.publish-container {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  margin: 10rpx;
+}
+.item {
+  margin: 16rpx;
+  background-color: white;
+  padding: 26rpx 20rpx;
+  border-radius: 20rpx;
+}
+.item .title {
+  font-size: 30rpx;
+  font-weight: 500;
+}
+
+.stars{
+  display: flex;
+  flex-direction: row;
+}
+.stars .star-item image{
+  width: 68rpx;
+  height: 68rpx;
+  margin-right: 24rpx;
+}
+
+.content {
+  display: flex;
+  box-sizing: border-box;
+  margin-top: 18rpx;
+}
+
+.content .textarea {
+  padding: 20rpx;
+  width: 100%;
+  border-radius: 14rpx;
+  border: 2rpx solid rgb(223, 221, 221);
+  line-height: 44rpx;
+}
+
+.content .input {
+  width: 100%;
+  padding: 16rpx 20rpx;
+  border-radius: 14rpx;
+  border: 2rpx solid rgb(223, 221, 221);
+}
+
+.submit{
+  position: relative;
+  bottom: -8%;
+  text-align: center;
+  align-items: center;
+  background-color: #f6a57f;
+}

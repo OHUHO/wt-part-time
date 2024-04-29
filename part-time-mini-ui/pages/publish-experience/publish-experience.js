@@ -1,66 +1,50 @@
-// pages/publish-experience/publish-experience.js
+import { saveExperience } from '../../api/experience'
+
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    experience:{
+      // 经验标题
+      name:'',
+      // 经验内容
+      content:'',
+      createUserId: wx.getStorageSync('userInfo').id
+    }
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad(options) {
 
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
+  //设置用户输入的数据
+  setInput(e) {
+    const { key } = e.target.dataset
+    this.data[key] = e.detail.value
+    this.setData(this.data)
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
+  // 发布经验
+  async submit(){
+    let data = this.data.experience
+    if(data.name == '' || data.content == ''){
+      wx.showToast({
+        title: '内容不能为空～',
+        icon:'none'
+      })
+      return
+    }
+    let res = await saveExperience(data)
+    if(res.code === 200){
+      wx.showToast({
+        title: '经验发布成功!',
+        icon: 'success',
+        duration: 2000,
+        success() {
+          setTimeout(function () {
+            wx.navigateBack()
+          }, 3000);
+        }
+      })
+    }
   }
 })

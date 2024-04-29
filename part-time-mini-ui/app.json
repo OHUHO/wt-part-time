@@ -16,7 +16,8 @@
     "pages/my-join-details/my-join-details",
     "pages/my-authentication/my-authentication",
     "pages/job-reviews/job-reviews",
-    "pages/publish-experience/publish-experience"
+    "pages/publish-experience/publish-experience",
+    "pages/experience-details/experience-details"
   ],
   "window": {
     "backgroundTextStyle":"light",

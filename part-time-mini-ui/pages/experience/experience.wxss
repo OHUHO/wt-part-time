@@ -13,7 +13,7 @@ page {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  margin: 10rpx;
+  margin: 16rpx;
 }
 
 .top-bg {
@@ -37,11 +37,12 @@ page {
   display: flex;
   flex-direction:row;
   align-items:center;
+  margin: 6rpx 0;
 }
 .user-container .userInfo .image {
   width: 88rpx;
   height: 88rpx;
-  border-radius: 50rpx;
+  border-radius: 50%;
 }
 .user-container .userInfo .name {
   margin-left: 24rpx;
@@ -56,6 +57,49 @@ page {
   font-size: 26rpx;
   font-weight: 500;
   color: rgb(133, 128, 128);
+}
+.body {
+  display: flex;
+  flex-direction: column;
+}
+.body .item {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  /* background-color: red; */
+  margin: 16rpx 0 0 0;
+  padding: 16rpx;
+  border-radius: 12rpx;
+}
+.body .item .title {
+  font-size: 32rpx;
+}
+
+.body .item .other-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8rpx;
+  font-size: 26rpx;
+  color: rgb(105, 104, 104);
+}
+.body .item .other-info .userinfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.body .item .other-info .userinfo image {
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+}
+.body .item .other-info .userinfo text {
+  margin-left: 10rpx;
+}
+.body .item .other-info .time {
+  font-size: 24rpx;
+  color: rgb(133, 132, 132);
 }
 
 

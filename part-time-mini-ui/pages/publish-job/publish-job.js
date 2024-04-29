@@ -80,7 +80,7 @@ Page({
     this.getJobTypes()
   },
   // 绑定数据
-  setInput: function(e) {
+  setInput(e) {
     const { key } = e.target.dataset
     // this.data[key] = e.detail.value
     // this.setData(this.data)

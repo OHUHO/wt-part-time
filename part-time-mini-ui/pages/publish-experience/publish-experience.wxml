@@ -1,2 +1,29 @@
-<!--pages/publish-experience/publish-experience.wxml-->
-<text>pages/publish-experience/publish-experience.wxml</text>
+<navigation-bar title="发布经验" back="{{true}}" color="black" background="#FFF"></navigation-bar>
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="publish-container">
+    <view class="item">
+      <text class="title">经验标题</text>
+      <view class="content">
+        <input class="input"
+          placeholder="用一句话完整的描述经验～"
+          maxlength="{{20}}"
+          type="text"
+          value="{{experience.name}}"
+          data-key="experience.name"
+          bindinput="setInput"/>
+      </view>
+    </view>
+    <view class="item">
+      <text class="title">经验内容</text>
+      <view class="content">
+        <textarea class="textarea" 
+          placeholder="请输入经验内容～"
+          maxlength="{{18888}}"
+          value="{{experience.content}}"
+          data-key="experience.content"
+          bindinput="setInput"/>
+      </view>
+    </view>
+  </view>
+  <button class="submit" bindtap="submit">发布</button>
+</scroll-view>

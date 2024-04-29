@@ -89,6 +89,18 @@ export const constantRoutes = [
     ]
   },
   {
+    path: '/experience',
+    component: Layout,
+    children: [
+      {
+        path: 'info',
+        name: 'Experience',
+        component: () => import('@/views/experience/index'),
+        meta: { title: '经验管理', icon: 'form' }
+      }
+    ]
+  },
+  {
     path: '/example',
     component: Layout,
     redirect: '/example/table',

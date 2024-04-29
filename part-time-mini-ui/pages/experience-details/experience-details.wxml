@@ -1,0 +1,98 @@
+<wxs src='/utils/filter.wxs' module='filter'></wxs>
+<navigation-bar title="经验详情" back="{{true}}" color="black" background="#FFF"></navigation-bar>
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="experience-container">
+    <view class="content-container" wx:if="{{experience != null}}">
+      <view class="userinfo-container">
+        <view class="userinfo">
+          <image src="{{experience.portrait}}" mode=""/>
+          <text>{{experience.username}}</text>
+          <view class="love" wx:if="{{loveUser == null}}" bind:tap="love">
+            <icon class="iconfont icon-jiahao"></icon>
+            <text>关注</text>
+          </view>
+          <view class="love love-love" wx:else bind:tap="hate">
+            <icon class="iconfont icon-sanheng"></icon>
+            <text>已关注</text>
+          </view>
+        </view>
+        <text class="time">{{filter.dateFullFormat(experience.createTime)}}</text>
+      </view>
+      <text class="title">{{experience.name}}</text>
+      <text class="content">{{experience.content}}</text>
+      <view class="operation">
+        <view class="good-love">
+          <view class="item {{goodExperience != null ? 'item-active':''}}" 
+            bind:tap="goodExperience">
+            <icon class="iconfont icon-icon"></icon>
+            <text>点赞</text>
+          </view>
+          <view class="item {{loveExperience != null ? 'item-active':''}}" 
+            bind:tap="loveExperience">
+            <icon class="iconfont icon-shoucang"></icon>
+            <text>收藏</text>
+          </view>
+        </view>
+        <view class="comment" bind:tap="showModal">
+          <icon class="iconfont icon-xie"></icon>
+          <text>评论</text>
+        </view>
+      </view>
+    </view>
+    <view class="comment-container">
+      <text class="number">评论数{{comments.length}}</text>
+      <view class="comment-info" wx:if="{{comments.length > 0}}">
+        <view class="comment-item"
+          wx:for="{{comments}}"
+          wx:key="index">
+          <view class="comment-left">
+            <image class="portrait" src="{{item.fromUserPortrait}}"/>
+          </view>
+          <view class="comment-right">
+            <view class="right-top">
+              <text class="username">{{item.fromUserName}}</text>
+              <text class="comment-time">{{item.commentTime}}</text>
+            </view>
+            <view class="comment-content">{{item.content}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="comment-info comment-empty" wx:else="">
+        暂无评论～
+      </view>
+    </view>
+  </view>
+</scroll-view>
+
+<!-- 自定义弹出输入框动画 -->
+<view class="modals" hidden="{{hideModal}}">
+    <view class="modals-cancel" bindtap="hideModal"></view>
+    <view class="bottom-dialog-body" 
+      animation="{{animationData}}">
+        <view class="body-container">
+          <view class="operation-icon">
+              <viwe class="item item-common cancel" bindtap="hideModal">
+                <text class="">取消</text>
+              </viwe>
+              <view class="item title">
+                <text>经验评论</text>
+              </view>
+              <view class="item item-common comment" bindtap="comment">
+                <text>发送</text>
+              </view>
+          </view>
+          <view class="text-container">
+            <textarea class="textarea" 
+              cursor-spacing='140' 
+              placeholder="请您输入评论~" 
+              focus="{{true}}" 
+              maxlength="888" 
+              type="text"
+              auto-height="{{true}}"
+              value="{{comment.content}}" 
+              data-key="comment.content" 
+              bindinput="setInput"/>
+          </view>
+        </view>
+    </view>
+</view>

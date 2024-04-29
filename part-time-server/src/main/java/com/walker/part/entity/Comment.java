@@ -33,6 +33,11 @@ public class Comment implements Serializable {
     private String commentId;
 
     /**
+     * 父评论ID
+     */
+    private String parentId;
+
+    /**
      * 经验ID
      */
     private String experienceId;

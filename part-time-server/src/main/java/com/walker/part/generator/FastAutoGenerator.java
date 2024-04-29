@@ -56,7 +56,10 @@ public class FastAutoGenerator {
                             //.addInclude("registration_sheet")
                             //.addInclude("reviews")
                             //.addInclude("user_info")
-                            .addInclude("admin_info")
+                            //.addInclude("admin_info")
+                            .addInclude("user_fans")
+                            .addInclude("experience_love")
+                            .addInclude("experience_good")
                             //#######################################################
 
                             // 设置过滤表前缀

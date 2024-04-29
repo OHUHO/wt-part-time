@@ -14,6 +14,24 @@
         <view class="btn-text" bindtap="publish">去发布 ></view>
       </view>
     </view>
+
+    <view class="body">
+      <view class="item" 
+        wx:for="{{experience}}" 
+        wx:key="index"
+        data-value="{{item.experienceId}}"
+        bindtap="details">
+        <view class="title">{{item.name}}</view>
+        <view class="other-info">
+          <view class="userinfo">
+            <image src="{{item.portrait}}" mode=""/>
+            <text>{{item.username}}</text>
+          </view>
+          <text class="time">{{filter.dateFullFormat(item.createTime)}}</text>
+        </view>
+      </view>
+    </view>
   </view>
+
 
 </scroll-view>
