@@ -31,4 +31,18 @@ public interface IUserFansService extends IService<UserFans> {
      * @return 分页结果
      */
     Page<UserFansResp> getPage(FansForm form);
+
+    /**
+     * 统计用户的关注数量
+     * @param userId 用户ID
+     * @return 关注数量
+     */
+    Long countLove(String userId);
+
+    /**
+     * 统计用户的粉丝数量
+     * @param userId 用户ID
+     * @return 粉丝数量
+     */
+    Long countFans(String userId);
 }

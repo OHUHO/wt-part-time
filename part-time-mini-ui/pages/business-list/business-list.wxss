@@ -1,0 +1,35 @@
+page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: whitesmoke;
+}
+.scrollarea {
+  flex: 1;
+  overflow-y: hidden;
+}
+.business {
+  margin: 0 16rpx;
+  background-color: whitesmoke;
+}
+.business-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* padding: 4rpx 16rpx; */
+  /* background-color: violet; */
+  background-color: white;
+  margin: 12rpx 0;
+  border-radius: 16rpx;
+}
+.business-item .logo {
+  width: 94rpx;
+  height: 94rpx;
+  margin: 14rpx;
+  border-radius: 16rpx;
+}
+.business-item .title {
+  font-size: 30rpx;
+  color: #4d4c4c;
+}
+

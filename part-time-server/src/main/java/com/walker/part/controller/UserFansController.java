@@ -25,6 +25,27 @@ public class UserFansController {
     private final IUserFansService fansService;
 
     /**
+     * 统计用户的粉丝数量
+     * @param userId 用户ID
+     * @return 粉丝数量
+     */
+    @GetMapping(value = "/countFans",name = "统计用户的粉丝数量")
+    public Result<Long> countFans(String userId){
+        return Result.success("查询成功！",fansService.countFans(userId));
+    }
+
+    /**
+     * 统计用户的关注数量
+     * @param userId 用户ID
+     * @return 关注数量
+     */
+    @GetMapping(value = "/countLove",name = "统计用户的关注数量")
+    public Result<Long> countLove(String userId){
+        return Result.success("查询成功！",fansService.countLove(userId));
+    }
+
+
+    /**
      * 通过关注人ID和被关注人ID查询关注信息
      * @param fromId 关注ID
      * @param toId 被关注ID

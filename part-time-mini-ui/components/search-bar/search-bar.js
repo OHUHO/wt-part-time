@@ -5,13 +5,10 @@ const app = getApp();
 Component({
 
   properties: {
-
     addflag: { //显示搜索框右侧部分
       type: Boolean,
       value: false,
-
       observer(newVal, oldVal, changedPath) {
-
       }
     },
     addimg: { //显示搜索框右侧部分icon
@@ -33,7 +30,6 @@ Component({
    * 组件的初始数据
    */
   data: {
-    // searchflag: false,
     statusBarHeight: 0
   },
   attached: function() {

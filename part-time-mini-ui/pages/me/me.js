@@ -1,4 +1,4 @@
-import { getById } from '../../api/user'
+import { getById,getUserInfo } from '../../api/user'
 
 // 手指起始的坐标
 let startY = 0;
@@ -15,6 +15,7 @@ Page({
       portrait: '/static/images/default.png',
       businesss: false,
     },
+    privateUserInfo:null,
   },
   async onLoad (){
     var user = wx.getStorageSync('userInfo');
@@ -23,12 +24,12 @@ Page({
     });
     // 获取当前用户信息
     let res = await getById(user.id)
-    // console.log(res)
     if(res.code === 200){
       this.setData({
         userInfo: res.data,
       })
     }
+    this.getUserInfo(user.id)
   },
   // 商家认证
   business(){
@@ -37,12 +38,22 @@ Page({
         title: '您已经认证过了',
         duration: 2000,
       })
-    }else{
-      wx.navigateTo({
-        url: '/pages/authentication/authentication',
+      return
+    }
+    wx.navigateTo({
+      url: '/pages/authentication/authentication',
+    })
+  },
+  // 获取用户关注收藏等信息
+  async getUserInfo(userId){
+    let res = await getUserInfo(userId)
+    if(res.code === 200){
+      this.setData({
+        privateUserInfo:res.data
       })
     }
   },
+
   // 兼职发布
   myJob(){
     wx.navigateTo({
@@ -55,12 +66,7 @@ Page({
       url: '/pages/my-join/my-join',
     })
   },
-  // 我的认证
-  myAuthentication(){
-    wx.navigateTo({
-      url: '/pages/my-authentication/my-authentication',
-    })
-  },
+  
 
 
 
@@ -94,20 +100,7 @@ Page({
     })
   },
 
-  //钱包
-  wallet(){
-    wx.showToast({
-      title: '此功能未开通~',
-      icon:'none'
-    })
-  },
-  //粉丝和关注
-  like:function(e){
-    var information = e.currentTarget.dataset.information;
-    wx.navigateTo({
-      url: '/pages/like/like?information=' + information,
-    })
-  },
+  
   //认证
   authentication: function(){
     wx.navigateTo({

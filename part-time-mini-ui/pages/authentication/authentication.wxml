@@ -43,6 +43,16 @@
       </view>
     </view>
     <view class="form">
+      <view class="title">店铺名称:</view>
+      <view class="reminder">
+        <input maxlength="20" 
+          placeholder="请输入店铺名称" 
+          value="{{business.storeName}}" 
+          data-key="business.storeName" 
+          bindinput="update"/>
+      </view>
+    </view>
+    <view class="form">
       <view class="title">店铺类型:</view>
       <picker class="reminder" 
         bindchange="selectStoreType" 
@@ -52,13 +62,27 @@
       </picker>
     </view>
     <view class="form">
-      <view class="title">店铺名称:</view>
+      <view class="title">LOGO:</view>
       <view class="reminder">
-        <input maxlength="20" 
-          placeholder="请输入店铺名称" 
-          value="{{business.storeName}}" 
-          data-key="business.storeName" 
-          bindinput="update"/>
+        <input disabled
+          placeholder="点击上传店铺LOGO" 
+          value="{{storeLogoName}}"
+          data-businesskey="business.storeLogo"
+          data-key="storeLogoName"
+          data-type="image"
+          bindtap="uploadFiles"/>
+      </view>
+    </view>
+    <view class="form">
+      <view class="title">背景图:</view>
+      <view class="reminder">
+        <input disabled
+          placeholder="点击上传店铺背景图" 
+          value="{{storeBgName}}"
+          data-businesskey="business.storeBackground"
+          data-key="storeBgName"
+          data-type="image"
+          bindtap="uploadFiles"/>
       </view>
     </view>
     <view class="form">
@@ -84,8 +108,11 @@
       <view class="title">材料上传：</view>
       <view class="reminder">
         <input disabled
-          placeholder="点击上传认证材料" 
+          placeholder="点击上传认证材料"
           value="{{papersFilesName}}" 
+          data-businesskey="business.papersImg"
+          data-key="papersFilesName"
+          data-type="file"
           bindtap="uploadFiles"/>
       </view>
     </view>

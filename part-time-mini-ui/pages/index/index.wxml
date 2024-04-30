@@ -1,50 +1,60 @@
 <wxs src='/utils/filter.wxs' module='filter'></wxs>
-<view class="indexContainer" style='margin-top: {{statusBarHeight*2+20}}rpx'>
-  <SearchBar bindtap="search"></SearchBar>
-  <view class="swiperContainer">
-    <swiper class="imageContainer" bindchange="carouselChange" previous-margin="40rpx" next-margin="35rpx" circular autoplay>
+<search-bar bindtap="search"/>
+<scroll-view class="scrollarea" 
+  style='margin-top: {{statusBarHeight}}px'
+  scroll-y
+  type="list">
+  <view class="carousels-container">
+    <swiper class="swipers" 
+      bindchange="carouselChange" 
+      previous-margin="40rpx" 
+      next-margin="35rpx" 
+      circular 
+      autoplay>
       <block wx:for="{{carousels}}" wx:key="index">
-        <swiper-item class="turnItem">
-          <image class="itemImg {{index == currentIndex ? 'imgActive': ''}}" src="{{item.carouselUrl}}"></image>
+        <swiper-item class="">
+          <image class="swiper-image {{index == currentIndex ? 'swiper-active': ''}}" src="{{item.carouselUrl}}"/>
         </swiper-item>
       </block>
     </swiper>
     <!-- 指示点 -->
     <view class="dots">
         <block wx:for="{{carousels}}" wx:key="index">
-          <view class="dot{{index == currentIndex ? ' active' : ''}}"></view>
+          <view class="dot {{index == currentIndex ? 'active' : ''}}"></view>
         </block>
     </view>
   </view>
 
   <!-- 兼职类型 -->
-  <view class="fourBlock">
-    <view class="one" wx:for="{{jobTypes}}" wx:key="index">
-      <view class="allText" bindtap="jobType" data-value="{{item.typeId}}">
-        <text class="bigText">{{item.typeName}}</text>
-        <text class="smallText">{{item.description}}</text>
+  <view class="job-type">
+    <view class="type-item" 
+      wx:for="{{jobTypes}}" 
+      wx:key="index"
+      data-value="{{item.typeId}}"
+      bindtap="jobType">
+      <view class="title">
+        <text class="big-title">{{item.typeName}}</text>
+        <text class="small-title">{{item.description}}</text>
       </view>
-      <image src="{{item.cover}}" bindtap="jobType" data-value="{{item.typeId}}"></image>
+      <image src="{{item.cover}}"/>
     </view>
   </view>
 
-  <!-- 商家排行榜 -->
-  <view class="topList">
-    <NavHeader title="商家排行榜" nav="优秀商家排行榜"></NavHeader>
-    <swiper class="topListSwiper" circular next-margin="50rpx" previous-margin="50rpx">
-      <swiper-item>
-        <view class="swiperItem">
-          <view  wx:for="{{topList0}}" wx:key="index">
-            <navigator url="/pages/excellentBusinessPartTime/excellentBusinessPartTime?detail={{filter.tranValue(item)}}">
-              <view class="businessItem">
-                <image src="{{serverUrl + item.portrait}}"></image>
-                <text class="count">{{index+1}}</text>
-                <text class="businessName">{{item.name}}</text>
-              </view>
-            </navigator>
-          </view>
-        </view>
-      </swiper-item>
-    </swiper>
+  <view class="business-top">
+    <view class="header">
+      <text class="title">优质店铺</text>
+      <text class="look-more" bindtap="lookMore">查看更多</text>
+    </view>
+    <view class="business">
+      <view class="business-item" 
+        wx:for="{{businesses}}"
+        wx:key="index"
+        data-value="{{item.businessId}}"
+        bindtap="businessDetails">
+        <image class="logo" src="{{item.storeLogo}}"/>
+        <text class="title">{{item.storeName}}</text>
+      </view>
+    </view>
   </view>
-</view>
+</scroll-view>
+

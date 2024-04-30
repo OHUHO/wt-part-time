@@ -106,6 +106,16 @@
                                 </el-descriptions-item>
                                 <el-descriptions-item>
                                     <template slot="label">
+                                        <i class="el-icon-user"></i>材料
+                                    </template>
+                                    <el-link v-if="scope.row.reviewsToUser.additional" 
+                                        type="primary" 
+                                        :underline="false" 
+                                        :href="scope.row.reviewsToUser.additional">点击下载材料</el-link>
+                                    <span v-else>暂无</span>
+                                </el-descriptions-item>
+                                <el-descriptions-item>
+                                    <template slot="label">
                                         <i class="el-icon-user"></i>状态
                                     </template>
                                     <el-tooltip class="item" effect="dark" content="点击修改状态" placement="right">
@@ -157,6 +167,16 @@
                                         <i class="el-icon-user"></i>评价
                                     </template>
                                     {{ scope.row.reviewsToBusiness.content }}
+                                </el-descriptions-item>
+                                <el-descriptions-item>
+                                    <template slot="label">
+                                        <i class="el-icon-user"></i>材料
+                                    </template>
+                                    <el-link v-if="scope.row.reviewsToBusiness.additional" 
+                                        type="primary" 
+                                        :underline="false" 
+                                        :href="scope.row.reviewsToBusiness.additional">点击下载材料</el-link>
+                                    <span v-else>暂无</span>
                                 </el-descriptions-item>
                                 <el-descriptions-item>
                                     <template slot="label">

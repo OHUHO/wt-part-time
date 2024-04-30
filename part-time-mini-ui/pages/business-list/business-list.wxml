@@ -1,0 +1,15 @@
+<navigation-bar title="全部店铺" back="{{true}}" color="black" background="#FFF"></navigation-bar>
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="business-container">
+    <view class="business">
+      <view class="business-item" 
+        wx:for="{{businesses}}"
+        wx:key="index"
+        data-value="{{item.businessId}}"
+        bindtap="businessDetails">
+        <image class="logo" src="{{item.storeLogo}}"/>
+        <text class="title">{{item.storeName}}</text>
+      </view>
+    </view>
+  </view>
+</scroll-view>

@@ -6,6 +6,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.walker.part.form.PageForm;
 import com.walker.part.response.ExperienceResp;
 
+import java.util.List;
+
 /**
  * <p>
  *  服务类
@@ -36,4 +38,12 @@ public interface IExperienceService extends IService<Experience> {
      * @return 经验
      */
     ExperienceResp getByExperienceId(String experienceId);
+
+
+    /**
+     * 通过经验ID批量获取经验信息
+     * @param experienceIds 经验ID列表
+     * @return 经验列表
+     */
+    List<ExperienceResp> getByIds(List<String> experienceIds);
 }

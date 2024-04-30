@@ -3,6 +3,7 @@ package com.walker.part.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.walker.part.entity.Experience;
+import com.walker.part.entity.ExperienceLove;
 import com.walker.part.entity.UserFans;
 import com.walker.part.entity.UserInfo;
 import com.walker.part.form.FansForm;
@@ -62,6 +63,20 @@ public class UserFansServiceImpl extends ServiceImpl<UserFansMapper, UserFans> i
         }
         pageInfo.setRecords(records);
         return pageInfo;
+    }
+
+    @Override
+    public Long countLove(String userId) {
+        return getBaseMapper().selectCount(new LambdaQueryWrapper<UserFans>()
+                .eq(StringUtils.isNoneBlank(userId), UserFans::getFromId, userId)
+        );
+    }
+
+    @Override
+    public Long countFans(String userId) {
+        return getBaseMapper().selectCount(new LambdaQueryWrapper<UserFans>()
+                .eq(StringUtils.isNoneBlank(userId), UserFans::getToId, userId)
+        );
     }
 
     /**

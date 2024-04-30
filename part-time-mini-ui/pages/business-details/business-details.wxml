@@ -1,0 +1,32 @@
+<wxs src='/utils/filter.wxs' module='filter'></wxs>
+<navigation-bar title="TA的兼职" back="{{true}}" color="black" background="#FFF"></navigation-bar>
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="business-container">
+    <view class="business-info" style="background-image: url('{{business.storeBackground}}');">
+      <view class="logo-container">
+        <image src="{{business.storeLogo}}" mode="" class="logo"/>
+      </view>
+      <view class="store-name">
+        <text class="name">{{business.storeName}}</text>
+        <text class="type">{{business.storeType}}</text>
+      </view>
+    </view>
+    <view class="title">历史兼职</view>
+    <view class="job-container"  wx:if="{{jobs.length > 0}}">
+      <view wx:for="{{jobs }}" wx:key="index">
+        <job-card name='{{item.name}}'
+          salary='{{filter.salaryFormat(item.salary,item.salaryType,item.payType)}}'
+          jobType='{{item.typeName}}'
+          createTime='{{filter.dateFormatStyle(item.createTime)}}'
+          address='{{item.address}}'
+          beginTime='{{filter.dateFormatLength(item.beginTime)}}'
+          endTime='{{filter.dateFormatLength(item.endTime)}}'
+          bindtap="details"
+          data-value="{{item.jobId}}"/>
+      </view>
+    </view>
+    <view class="job-container empty" wx:else>
+      商家暂未发布兼职～
+    </view>
+  </view>
+</scroll-view>

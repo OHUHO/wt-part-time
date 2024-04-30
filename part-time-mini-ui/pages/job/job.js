@@ -6,7 +6,7 @@ Page({
 
   data: {
     userInfo: wx.getStorageSync('userInfo'),
-    business: {},
+    business: null,
     jobs:[],
     condition:{
       current:1,

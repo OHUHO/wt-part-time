@@ -3,6 +3,8 @@ package com.walker.part.controller;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.walker.part.entity.ExperienceGood;
 import com.walker.part.form.FansForm;
+import com.walker.part.form.GoodForm;
+import com.walker.part.response.ExperienceResp;
 import com.walker.part.service.IExperienceGoodService;
 import com.walker.part.utils.Result;
 import lombok.RequiredArgsConstructor;
@@ -24,6 +26,17 @@ public class ExperienceGoodController {
     private final IExperienceGoodService goodService;
 
     /**
+     * 统计用户或经验的点赞数量
+     * @param experienceId 经验ID
+     * @param userId 用户ID
+     * @return 点赞数量
+     */
+    @GetMapping(value = "/count",name = "统计用户或经验的点赞数量")
+    public Result<Long> count(String experienceId,String userId){
+        return Result.success("查询成功！",goodService.countGood(experienceId,userId));
+    }
+
+    /**
      * 通过经验ID和用户ID查询是否点赞
      * @param experienceId 经验ID
      * @param userId 用户ID
@@ -33,7 +46,6 @@ public class ExperienceGoodController {
     public Result<ExperienceGood> getByUserId(String experienceId, String userId){
         return Result.success(goodService.getByUserId(experienceId,userId));
     }
-
 
     /**
      * 通过ID查询点赞信息
@@ -51,7 +63,7 @@ public class ExperienceGoodController {
      * @return 分页结果
      */
     @PostMapping("/list")
-    public Result<Page<ExperienceGood>> list(@RequestBody FansForm form){
+    public Result<Page<ExperienceResp>> list(@RequestBody GoodForm form){
         return Result.success(goodService.getPage(form));
     }
 

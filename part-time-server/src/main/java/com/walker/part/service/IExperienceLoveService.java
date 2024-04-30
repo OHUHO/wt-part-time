@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.walker.part.entity.ExperienceLove;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.walker.part.form.FansForm;
+import com.walker.part.form.LoveForm;
+import com.walker.part.response.ExperienceResp;
 
 /**
  * <p>
@@ -28,5 +30,13 @@ public interface IExperienceLoveService extends IService<ExperienceLove> {
      * @param form 查询表单
      * @return 分页结果
      */
-    Page<ExperienceLove> getPage(FansForm form);
+    Page<ExperienceResp> getPage(LoveForm form);
+
+    /**
+     * 统计用户或经验的收藏数量
+     * @param experienceId 经验ID
+     * @param userId 用户ID
+     * @return 收藏数量
+     */
+    Long countLove(String experienceId, String userId);
 }

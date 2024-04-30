@@ -65,6 +65,16 @@ public class BusinessInfo implements Serializable {
     private String storeName;
 
     /**
+     * 注册店铺LOGO
+     */
+    private String storeLogo;
+
+    /**
+     * 注册店铺背景
+     */
+    private String storeBackground;
+
+    /**
      * 证件类型
      */
     private String papersType;

@@ -18,10 +18,14 @@ Page({
       phone:'',
       // 身份证号
       cardNo:'',
-      // 店铺类型
-      storeType:'',
       // 店铺名称
       storeName:'',
+      // 店铺类型
+      storeType:'',
+      // 店铺Logo
+      storeLogo:'',
+      // 背景图
+      storeBackground:'',
       // 证件类型
       papersType:'',
       // 证件号码
@@ -30,6 +34,8 @@ Page({
       papersImg:'',
       // 商家ID,
       businessId:'',
+      // 状态
+      status:1,
       // 当前用户的信息
       createTime:'',
       createUserId:'',
@@ -56,8 +62,9 @@ Page({
       "证件类型-C",
       "未知类型-Z"
     ],
+    storeLogoName:'',
+    storeBgName:'',
     papersFilesName:'',
-    imageList: [],
   },
   onLoad(options) {
     let user = wx.getStorageSync('userInfo')
@@ -108,11 +115,17 @@ Page({
       ['business.papersType']:this.data.papersType[selectedIndex]
     })
   },
+
   // 上传认证材料
   async uploadFiles(e) {
+    let key = e.currentTarget.dataset.key
+    let businesskey = e.currentTarget.dataset.businesskey
+    let type = e.currentTarget.dataset.type
+    // console.log("upload files key --",key)
+    // console.log("upload files key --",businessKey)
     wx.chooseMessageFile({
       count: 1,
-      type:'file',
+      type:type,
       success:res=>{
         console.log("call back success")
         let tempFilePath = res.tempFiles[0].path;
@@ -122,8 +135,8 @@ Page({
           resp = JSON.parse(resp)
           if(resp.code === 200){
             that.setData({
-              papersFilesName:res.tempFiles[0].name,
-              ['business.papersImg']:resp.data
+              [key]:res.tempFiles[0].name,
+              [businesskey]:resp.data
             })
             wx.showToast({
               title: '材料上传成功',

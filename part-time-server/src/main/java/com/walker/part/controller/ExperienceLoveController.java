@@ -3,6 +3,8 @@ package com.walker.part.controller;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.walker.part.entity.ExperienceLove;
 import com.walker.part.form.FansForm;
+import com.walker.part.form.LoveForm;
+import com.walker.part.response.ExperienceResp;
 import com.walker.part.service.IExperienceLoveService;
 import com.walker.part.utils.Result;
 import lombok.RequiredArgsConstructor;
@@ -22,6 +24,17 @@ import org.springframework.web.bind.annotation.*;
 public class ExperienceLoveController {
 
     private final IExperienceLoveService loveService;
+
+    /**
+     * 统计用户或经验的收藏数量
+     * @param experienceId 经验ID
+     * @param userId 用户ID
+     * @return 收藏数量
+     */
+    @GetMapping(value = "/count",name = "统计用户或经验的收藏数量")
+    public Result<Long> count(String experienceId,String userId){
+        return Result.success("查询成功！",loveService.countLove(experienceId,userId));
+    }
 
     /**
      * 通过经验ID和用户ID查询是否收藏
@@ -51,7 +64,7 @@ public class ExperienceLoveController {
      * @return 分页结果
      */
     @PostMapping("/list")
-    public Result<Page<ExperienceLove>> list(@RequestBody FansForm form){
+    public Result<Page<ExperienceResp>> list(@RequestBody LoveForm form){
         return Result.success(loveService.getPage(form));
     }
 

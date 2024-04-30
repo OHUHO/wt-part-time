@@ -16,4 +16,11 @@ export function getById(userId){
   })
 }
 
+// 获取用户收藏，粉丝，关注，点赞数据
+export function getUserInfo(userId){
+  return request({
+    url:'/user/getUserInfo?userId=' + userId,
+    method:'get',
+  })
+}
 

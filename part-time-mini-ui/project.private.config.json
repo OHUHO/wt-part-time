@@ -11,6 +11,20 @@
     "miniprogram": {
       "list": [
         {
+          "name": "店铺介绍",
+          "pathName": "pages/business-details/business-details",
+          "query": "businessId=1782395934693371906",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "TB::首页",
+          "pathName": "pages/index/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "发布经验",
           "pathName": "pages/publish-experience/publish-experience",
           "query": "",

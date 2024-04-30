@@ -23,6 +23,7 @@ public class UserInfoController {
 
     private final IUserInfoService userInfoService;
 
+
     /**
      * 微信用户登录
      * @param form 表单

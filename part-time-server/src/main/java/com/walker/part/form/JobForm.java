@@ -26,4 +26,9 @@ public class JobForm extends PageForm {
      * 商家ID
      */
     private String businessId;
+
+    /**
+     * 兼职种类ID
+     */
+    private String typeId;
 }

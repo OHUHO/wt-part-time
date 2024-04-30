@@ -78,6 +78,19 @@ public class ExperienceServiceImpl extends ServiceImpl<ExperienceMapper, Experie
         return this.transExperience(experience);
     }
 
+    @Override
+    public List<ExperienceResp> getByIds(List<String> experienceIds) {
+        List<Experience> experienceList = getBaseMapper().selectBatchIds(experienceIds);
+        List<ExperienceResp> list = new ArrayList<>();
+        if (CollectionUtils.isEmpty(experienceList)){
+            return list;
+        }
+        for (Experience experience : experienceList) {
+            list.add(this.transExperience(experience));
+        }
+        return list;
+    }
+
     /**
      * Experience转换
      * @param experience 经验

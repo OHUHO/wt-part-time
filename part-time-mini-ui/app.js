@@ -21,7 +21,7 @@ App({
     // 获取小程序首页的数据：轮播图、兼职类型、商家排行榜
     await this.getCarousel() 
     await this.getJobType() 
-    // this.getBusiness()
+    this.getBusiness()
   },
 
   // 获取轮播图
@@ -53,8 +53,9 @@ App({
   async getBusiness(){
     let condition = {
       current:1,
-      size:10,
+      size:6,
       keywords:'',
+      status:[2]
     }
     let res = await getBusiness(condition)
     if(res.code === 200){

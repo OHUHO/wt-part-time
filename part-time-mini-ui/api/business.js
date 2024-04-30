@@ -16,3 +16,12 @@ export function getById(businessId,status){
   })
 }
 
+// 分页查询商家信息
+export function getBusiness(data){
+  return request({
+    url:'/business/list',
+    method: 'post',
+    data
+  })
+}
+

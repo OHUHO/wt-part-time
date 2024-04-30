@@ -2,7 +2,7 @@
 <navigation-bar title="兼职" back="{{false}}" color="black" background="#FFF"></navigation-bar>
 <scroll-view class="scrollarea" scroll-y type="list">
   <view>
-    <view class="userinfo" wx:if="{{userInfo.business}}">
+    <view class="userinfo" wx:if="{{business}}">
       <view class="store-info">
         <text class="name">{{business.storeName}}</text>
         <view class="btn" bindtap="publishJob">发布兼职 ></view>

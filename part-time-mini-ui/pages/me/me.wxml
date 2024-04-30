@@ -16,6 +16,7 @@
       <text class="description">完善信息有助于体验</text>
     </view>
   </view>
+
   <view class="pull-down"
     bindtouchstart="handleTouchStart" 
     bindtouchmove="handleTouchMove" 
@@ -24,22 +25,22 @@
   >
     <image class="arc" src="/static/images/arc.png"></image>
     <view class="number">
-      <view class="row"  hover-class="common-hover"  hover-stay-time="50" bindtap="wallet">
-        <text class="iconfont icon-qianbao"></text>
-        <text>积分</text>
-        <text>{{userInfo.point}}</text>
-      </view>
-      <view class="row"   hover-class="common-hover" hover-stay-time="50" bindtap="like" data-information="粉丝">
+      <view class="row" bindtap="wallet">
         <text class="iconfont icon-fensi-copy"></text>
         <text>收藏</text>
         <text>{{userInfo.love}}</text>
       </view>
-      <view class="row"  hover-class="common-hover"  hover-stay-time="50" bindtap="like" data-information="关注">
-        <text class="iconfont icon-chakantieziguanzhu"></text>
+      <view class="row" bindtap="like">
+        <text class="iconfont icon-fensi1"></text>
         <text>粉丝</text>
         <text>{{userInfo.fans}}</text>
       </view>
-      <view class="row" hover-class="common-hover"  hover-stay-time="50" bindtap="">
+      <view class="row" bindtap="like">
+        <text class="iconfont icon-chakantieziguanzhu"></text>
+        <text>关注</text>
+        <text>{{userInfo.point}}</text>
+      </view>
+      <view class="row" bindtap="">
         <text class="iconfont icon-icon"></text>
         <text>点赞</text>
         <text>{{userInfo.good}}</text>

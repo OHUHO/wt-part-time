@@ -17,7 +17,11 @@
     "pages/my-authentication/my-authentication",
     "pages/job-reviews/job-reviews",
     "pages/publish-experience/publish-experience",
-    "pages/experience-details/experience-details"
+    "pages/experience-details/experience-details",
+    "pages/search/search",
+    "pages/job-type/job-type",
+    "pages/business-list/business-list",
+    "pages/business-details/business-details"
   ],
   "window": {
     "backgroundTextStyle":"light",

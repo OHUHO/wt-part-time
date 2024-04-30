@@ -48,7 +48,8 @@ public class JobInfoServiceImpl extends ServiceImpl<JobInfoMapper, JobInfo> impl
         }else {
             job.setUpdateTime(LocalDateTime.now());
         }
-        job.setStatus(1);
+        // 无需审核
+        job.setStatus(2);
         return this.saveOrUpdate(job);
     }
 
@@ -62,6 +63,7 @@ public class JobInfoServiceImpl extends ServiceImpl<JobInfoMapper, JobInfo> impl
                         .like(JobInfo::getContent, form.getKeywords())
                 )
                 .eq(StringUtils.isNoneBlank(form.getBusinessId()),JobInfo::getBusinessId,form.getBusinessId())
+                .eq(StringUtils.isNoneBlank(form.getTypeId()),JobInfo::getTypeId,form.getTypeId())
                 .in(CollectionUtils.isNotEmpty(form.getStatus()), JobInfo::getStatus, form.getStatus())
                 .orderByDesc(JobInfo::getCreateTime)
         );
