@@ -1,8 +1,10 @@
 package com.walker.part.service;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.walker.part.entity.UserInfo;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.walker.part.enums.ResultEnum;
+import com.walker.part.form.PageForm;
 import com.walker.part.form.UserLoginForm;
 import com.walker.part.response.UserInfoResp;
 
@@ -29,4 +31,11 @@ public interface IUserInfoService extends IService<UserInfo> {
      * @return 用户信息
      */
     UserInfoResp geUserInfo(String userId);
+
+    /**
+     * 分页查询用户列表
+     * @param form 查询表单
+     * @return 分页结果
+     */
+    Page<UserInfo> getPage(PageForm form);
 }

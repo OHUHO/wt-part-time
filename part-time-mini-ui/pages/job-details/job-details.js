@@ -58,6 +58,29 @@ Page({
   },
   // 报名
   async join(){
+    // 判断当前是符合报名条件
+    let currentTime = new Date().getFullYear() + '/'+ (new Date().getMonth() + 1).toString().padStart(2, '0') + '/' + new Date().getDate().toString().padStart(2, '0') + " 00:00:00"
+    if(this.data.job.beginTime <= currentTime && this.data.job.endTime >= currentTime){
+      wx.showToast({
+        title: '兼职进行中，暂无法报名～',
+        icon:'none'
+      })
+      return
+    }
+    if(currentTime > this.data.job.endTime){
+      wx.showToast({
+        title: '兼职已经结束，暂无法报名～',
+        icon:'none'
+      })
+      return
+    }
+    // if(currentTime >= this.data.job.beginTime){
+    //   wx.showToast({
+    //     title: '时间不允许，暂无法报名～',
+    //     icon:'none'
+    //   })
+    //   return
+    // }
     let data = {
       jobId:this.data.job.jobId,
       userId:this.data.userInfo.id,

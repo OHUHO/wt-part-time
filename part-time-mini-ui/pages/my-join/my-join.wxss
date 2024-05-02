@@ -45,10 +45,14 @@ page {
   color: rgb(100, 99, 99);
 }
 .card-body .address{
-
+  /* background-color: hotpink; */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .card-body .time {
-  /* margin-left: 24rpx; */
+  margin-left: 24rpx;
+  width: 260rpx;
 }
 .card-footer{
   display: flex;

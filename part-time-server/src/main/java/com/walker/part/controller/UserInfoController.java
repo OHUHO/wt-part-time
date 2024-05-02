@@ -1,6 +1,9 @@
 package com.walker.part.controller;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.walker.part.entity.Carousel;
 import com.walker.part.entity.UserInfo;
+import com.walker.part.form.PageForm;
 import com.walker.part.form.UserLoginForm;
 import com.walker.part.response.UserInfoResp;
 import com.walker.part.service.IUserInfoService;
@@ -23,6 +26,15 @@ public class UserInfoController {
 
     private final IUserInfoService userInfoService;
 
+    /**
+     * 分页查询
+     * @param form 查询表单
+     * @return 分页结果
+     */
+    @PostMapping("/list")
+    public Result<Page<UserInfo>> list(@RequestBody PageForm form){
+        return Result.success(userInfoService.getPage(form));
+    }
 
     /**
      * 微信用户登录

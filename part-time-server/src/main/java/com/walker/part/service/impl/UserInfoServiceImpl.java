@@ -1,9 +1,11 @@
 package com.walker.part.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.walker.part.entity.BusinessInfo;
 import com.walker.part.entity.UserInfo;
 import com.walker.part.exception.ApplicationException;
+import com.walker.part.form.PageForm;
 import com.walker.part.form.UserLoginForm;
 import com.walker.part.mapper.UserInfoMapper;
 import com.walker.part.response.UserInfoResp;
@@ -75,5 +77,18 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> i
             userResp.setBusiness(true);
         }
         return userResp;
+    }
+
+    @Override
+    public Page<UserInfo> getPage(PageForm form) {
+        Page<UserInfo> userInfoPage = new Page<>(form.getCurrent(),form.getSize());
+        return  getBaseMapper().selectPage(userInfoPage,new LambdaQueryWrapper<UserInfo>()
+                .and(StringUtils.isNoneBlank(form.getKeywords()),w->w
+                        .eq(UserInfo::getUsername,form.getKeywords())
+                        .or()
+                        .eq(UserInfo::getPhone,form.getKeywords())
+                )
+                .orderByDesc(UserInfo::getCreateTime)
+        );
     }
 }

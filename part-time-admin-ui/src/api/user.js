@@ -22,3 +22,12 @@ export function logout() {
     method: 'post'
   })
 }
+
+// 分页查询系统用户列表
+export function getUsers(data){
+  return request({
+    url:'/user/list',
+    method:'post',
+    data
+  })
+}
