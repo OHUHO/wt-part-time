@@ -1,0 +1,20 @@
+<wxs src='/utils/filter.wxs' module='filter'></wxs>
+<navigation-bar title="{{condition.title}}" back="{{true}}" color="black" background="#FFF"></navigation-bar>
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="love-container">
+    <view class="item" 
+      wx:for="{{experience}}" 
+      wx:key="index"
+      data-value="{{item.experienceId}}"
+      bindtap="details">
+      <view class="title">{{item.name}}</view>
+      <view class="other-info">
+        <view class="userinfo">
+          <image src="{{item.portrait}}" mode=""/>
+          <text>{{item.username}}</text>
+        </view>
+        <text class="time">{{filter.dateFullFormat(item.createTime)}}</text>
+      </view>
+    </view>
+  </view>
+</scroll-view>

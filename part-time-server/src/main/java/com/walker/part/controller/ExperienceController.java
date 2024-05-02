@@ -3,6 +3,7 @@ package com.walker.part.controller;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.walker.part.entity.Experience;
 import com.walker.part.entity.Experience;
+import com.walker.part.form.ExperienceForm;
 import com.walker.part.form.PageForm;
 import com.walker.part.response.ExperienceResp;
 import com.walker.part.service.IExperienceService;
@@ -41,7 +42,7 @@ public class ExperienceController {
      * @return 分页结果
      */
     @PostMapping("/list")
-    public Result<Page<ExperienceResp>> list(@RequestBody PageForm form){
+    public Result<Page<ExperienceResp>> list(@RequestBody ExperienceForm form){
         return Result.success(experienceService.getPage(form));
     }
 

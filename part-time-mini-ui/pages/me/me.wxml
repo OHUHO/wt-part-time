@@ -25,25 +25,25 @@
   >
     <image class="arc" src="/static/images/arc.png"></image>
     <view class="number">
-      <view class="row" bindtap="wallet">
+      <view class="row" data-key="love" bindtap="experienceLove">
         <text class="iconfont icon-fensi-copy"></text>
         <text>收藏</text>
-        <text>{{userInfo.love}}</text>
+        <text>{{privateUserInfo.experienceLove}}</text>
       </view>
-      <view class="row" bindtap="like">
+      <view class="row" data-key="toId" bindtap="userLove">
         <text class="iconfont icon-fensi1"></text>
         <text>粉丝</text>
-        <text>{{userInfo.fans}}</text>
+        <text>{{privateUserInfo.userFans}}</text>
       </view>
-      <view class="row" bindtap="like">
+      <view class="row" data-key="fromId" bindtap="userLove">
         <text class="iconfont icon-chakantieziguanzhu"></text>
         <text>关注</text>
-        <text>{{userInfo.point}}</text>
+        <text>{{privateUserInfo.userLove}}</text>
       </view>
-      <view class="row" bindtap="">
+      <view class="row" data-key="good" bindtap="experienceLove">
         <text class="iconfont icon-icon"></text>
         <text>点赞</text>
-        <text>{{userInfo.good}}</text>
+        <text>{{privateUserInfo.experienceGood}}</text>
       </view>
     </view>
 
@@ -56,22 +56,15 @@
         </view>
       </view>
       <view class="line"></view>
-      <view class="row" bindtap="myDemand" >
-        <view class="left">经验发布</view>
-        <view class="right">
-          <icon class="iconfont icon-fanhui-copy-copy"></icon>
-        </view>
-      </view>
-      <view class="line"></view>
-      <view class="row" bindtap="authentication">
-        <view class="left">我的经验</view>
-        <view class="right">
-          <icon class="iconfont icon-fanhui-copy-copy"></icon>
-        </view>
-      </view>
-      <view class="line"></view>
       <view class="row" bindtap="myJoin">
         <view class="left">我参与的</view>
+        <view class="right">
+          <icon class="iconfont icon-fanhui-copy-copy"></icon>
+        </view>
+      </view>
+      <view class="line"></view>
+      <view class="row" bindtap="myExperience">
+        <view class="left">我的经验</view>
         <view class="right">
           <icon class="iconfont icon-fanhui-copy-copy"></icon>
         </view>
@@ -91,14 +84,13 @@
           <icon class="iconfont icon-fanhui-copy-copy"></icon>
         </view>
       </view>
-      <view class="line"></view>
+      <!-- <view class="line"></view>
       <view class="row" bindtap="">
         <view class="left">帮助中心</view>
         <view class="right">
           <icon class="iconfont icon-fanhui-copy-copy"></icon>
         </view>
-      </view>
+      </view> -->
     </view>
   </view>
-
 </view>

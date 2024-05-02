@@ -3,6 +3,7 @@ package com.walker.part.service;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.walker.part.entity.Experience;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.walker.part.form.ExperienceForm;
 import com.walker.part.form.PageForm;
 import com.walker.part.response.ExperienceResp;
 
@@ -30,7 +31,7 @@ public interface IExperienceService extends IService<Experience> {
      * @param form 分页表单
      * @return 分页集合
      */
-    Page<ExperienceResp> getPage(PageForm form);
+    Page<ExperienceResp> getPage(ExperienceForm form);
 
     /**
      * 通过经验ID查询

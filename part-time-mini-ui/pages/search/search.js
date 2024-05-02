@@ -1,66 +1,62 @@
+import { getJobs } from "../../api/job";
+
 // pages/search/search.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    condition:{
+      current:1,
+      size:9999,
+      keywords:'',
+    },
+    searchEd:false,
+    jobs:[]
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad(options) {
-
+    
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
+  setInput(e) {
+    let value = e.detail.detail.value;
+    this.setData({
+      ['condition.keywords']: value
+    })
+  },
+  enter(e) {
+    if (this.data.condition.keywords.length < 2) {
+      wx.showModal({
+        title: '提示',
+        content: '字数太少，至少输入两个字',
+        showCancel: false
+      })
+      return;
+    }
+    this.search()
+  },
+  clear(){
+    this.setData({
+      ['condition.keywords']: '',
+      searchEd:false,
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
+  // 搜索
+  async search(){
+    // console.log(this.data.condition)
+    let res = await getJobs(this.data.condition)
+    if(res.code === 200){
+      this.setData({
+        searchEd:true,
+        jobs:res.data.records
+      })
+    }
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
+  // 详情
+  details(e){
+    wx.navigateTo({
+      url: '/pages/job-details/job-details?jobId=' + e.currentTarget.dataset.value,
+    })
   }
+
 })

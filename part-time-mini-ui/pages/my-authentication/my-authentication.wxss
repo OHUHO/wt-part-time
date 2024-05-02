@@ -1,1 +1,46 @@
-/* pages/my-authentication/my-authentication.wxss */
+page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: whitesmoke;
+}
+.scrollarea {
+  flex: 1;
+  overflow-y: hidden;
+}
+.business-container {
+  /* background-color: hotpink; */
+  /* margin: 16rpx; */
+  /* padding: 16rpx; */
+  /* border-radius: 16rpx; */
+  display: flex;
+  flex-direction: column;
+}
+.user-container {
+  padding: 44rpx 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.user-container .logo {
+  width: 166rpx;
+  height: 166rpx;
+  border-radius: 50%;
+}
+.user-container .name {
+  display: flex;
+  font-size: 38rpx;
+  line-height: 66rpx;
+}
+.user-container .type {
+  font-size: 24rpx;
+  border-radius: 16rpx;
+  background-color: rgb(163, 162, 162);
+  padding: 6rpx 20rpx;
+  opacity: 0.8;
+  color: white;
+}
+
+
+

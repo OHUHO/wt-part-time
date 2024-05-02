@@ -1,0 +1,71 @@
+page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: whitesmoke;
+}
+.scrollarea {
+  flex: 1;
+  overflow-y: hidden;
+}
+.fans-container {
+  margin: 16rpx;
+  background-color: white;
+  padding: 16rpx;
+  border-radius: 16rpx;
+}
+
+.fans-item .userinfo-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.fans-item .userinfo-container .userinfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.fans-item .userinfo-container image {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 50%;
+}
+.fans-item .userinfo-container text {
+  margin-left: 20rpx;
+  font-size: 30rpx;
+  /* font-weight: bolder; */
+}
+.fans-item .userinfo-container .love {
+  display: flex;
+  flex-direction: row;
+  background-color: #f6a57f;
+  padding: 6rpx 16rpx;
+  margin-left: 14rpx;
+  border-radius: 26rpx;
+  font-size: 10rpx;
+  color: white;
+}
+.fans-item .userinfo-container .love .iconfont{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+}
+
+.fans-item .userinfo-container .love-love{
+  background-color: rgb(199, 198, 198);
+}
+.fans-item .userinfo-container .love .iconfont{
+  font-size: 26rpx;
+  margin-right: 6rpx;
+}
+
+.fans-item .userinfo-container .love text{
+  margin-left: 0rpx;
+  font-size: 26rpx;
+  font-weight: unset;
+}
+

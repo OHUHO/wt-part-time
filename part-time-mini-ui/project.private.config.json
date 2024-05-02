@@ -11,6 +11,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "搜索",
+          "pathName": "pages/search/search",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "店铺介绍",
           "pathName": "pages/business-details/business-details",
           "query": "businessId=1782395934693371906",

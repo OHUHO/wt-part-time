@@ -1,1 +1,30 @@
-/* pages/search/search.wxss */
+page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: whitesmoke;
+}
+.scrollarea {
+  flex: 1;
+  overflow-y: hidden;
+}
+
+.serach-container {
+  margin: 16rpx 0;
+}
+
+.serach-body {
+  /* margin: 16rpx; */
+}
+.empty {
+  margin: 16rpx;
+  height: 400rpx;
+  /* background-color: hotpink; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: rgb(172, 170, 170);
+  border: 2rpx solid rgb(240, 239, 239);
+  border-radius: 16rpx;
+}

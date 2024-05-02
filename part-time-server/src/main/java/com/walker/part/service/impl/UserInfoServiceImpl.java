@@ -68,7 +68,7 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> i
     @Override
     public UserInfoResp geUserInfo(String userId) {
         UserInfo user = getBaseMapper().selectById(userId);
-        BusinessInfo business = businessInfoService.getBusinessById(userId,2);
+        BusinessInfo business = businessInfoService.getBusinessById(userId,null);
         UserInfoResp userResp = new UserInfoResp();
         BeanUtils.copyProperties(user,userResp);
         if (ObjectUtils.isNotEmpty(business)){

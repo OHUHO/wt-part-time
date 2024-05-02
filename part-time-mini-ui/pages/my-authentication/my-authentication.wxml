@@ -1,2 +1,10 @@
 <navigation-bar title="我的认证" back="{{true}}" color="black" background="#FFF"></navigation-bar>
-
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="business-container">
+    <view class="user-container" style="background-image: url({{business.storeBackground}});">
+      <image class="logo" src="{{business.storeLogo}}" mode=""/>
+      <text class="name">{{business.storeName}}</text>
+      <text class="type">{{business.storeType}}</text>
+    </view>
+  </view>
+</scroll-view>

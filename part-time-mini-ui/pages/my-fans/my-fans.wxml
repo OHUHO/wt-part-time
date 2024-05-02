@@ -1,0 +1,32 @@
+<navigation-bar title="{{condition.title}}" back="{{true}}" color="black" background="#FFF"></navigation-bar>
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="fans-container">
+    <view class="fans-item" 
+      wx:for="{{fans}}" 
+      wx:key="index">
+      <view class="userinfo-container">
+        <view class="userinfo"  wx:if="{{condition.fromId == ''}}">
+          <!-- 我的粉丝 -->
+          <image src="{{item.fromPortrait}}" mode=""/>
+          <text>{{item.fromUsername}}</text>
+        </view>
+        <view class="userinfo" wx:else>
+          <!-- 我的关注 -->
+          <image src="{{item.toPortrait}}" mode=""/>
+          <text>{{item.toUsername}}</text>
+        </view>
+
+        <!-- <view wx:if="{{condition.fromId != ''}}">
+          <view class="love" wx:if="{{loveUser == null}}" bind:tap="love">
+            <icon class="iconfont icon-jiahao"></icon>
+            <text>关注</text>
+          </view>
+          <view class="love love-love" wx:else bind:tap="hate">
+            <icon class="iconfont icon-sanheng"></icon>
+            <text>已关注</text>
+          </view>
+        </view> -->
+      </view>
+    </view>
+  </view>
+</scroll-view>

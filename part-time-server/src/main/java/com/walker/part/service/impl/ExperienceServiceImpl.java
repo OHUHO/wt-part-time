@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.walker.part.entity.BusinessInfo;
 import com.walker.part.entity.Experience;
 import com.walker.part.entity.UserInfo;
+import com.walker.part.form.ExperienceForm;
 import com.walker.part.form.PageForm;
 import com.walker.part.mapper.ExperienceMapper;
 import com.walker.part.response.ExperienceResp;
@@ -48,7 +49,7 @@ public class ExperienceServiceImpl extends ServiceImpl<ExperienceMapper, Experie
     }
 
     @Override
-    public Page<ExperienceResp> getPage(PageForm form) {
+    public Page<ExperienceResp> getPage(ExperienceForm form) {
         Page<Experience> page = new Page<>(form.getCurrent(), form.getSize());
         Page<Experience> experiencePage = getBaseMapper().selectPage(page, new LambdaQueryWrapper<Experience>()
                 .and(StringUtils.isNoneBlank(form.getKeywords()), w -> w
@@ -56,6 +57,7 @@ public class ExperienceServiceImpl extends ServiceImpl<ExperienceMapper, Experie
                         .or()
                         .like(Experience::getContent, form.getKeywords())
                 )
+                .eq(StringUtils.isNoneBlank(form.getUserId()),Experience::getCreateUserId,form.getUserId())
                 .orderByDesc(Experience::getCreateTime)
         );
         Page<ExperienceResp> pageInfo = new Page<>();

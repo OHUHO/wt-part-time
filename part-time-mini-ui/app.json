@@ -21,7 +21,10 @@
     "pages/search/search",
     "pages/job-type/job-type",
     "pages/business-list/business-list",
-    "pages/business-details/business-details"
+    "pages/business-details/business-details",
+    "pages/my-love/my-love",
+    "pages/my-fans/my-fans",
+    "pages/my-experience/my-experience"
   ],
   "window": {
     "backgroundTextStyle":"light",

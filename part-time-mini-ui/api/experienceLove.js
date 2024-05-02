@@ -24,3 +24,19 @@ export function deleteLove(loveId){
   })
 }
 
+// 分页查询
+export function getLoves(data){
+  return request({
+    url:'/love/list',
+    method: 'post',
+    data
+  })
+}
+
+// 统计用户的点赞数量
+export function count(experienceId,userId){
+  return request({
+    url:'/love/count?experienceId=' + experienceId + '&userId=' + userId,
+    method:'get',
+  })
+}

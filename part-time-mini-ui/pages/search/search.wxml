@@ -1,2 +1,32 @@
-<!--pages/search/search.wxml-->
-<text>pages/search/search.wxml</text>
+<wxs src='/utils/filter.wxs' module='filter'></wxs>
+<navigation-bar title="搜索" back="{{true}}" color="black" background="#FFF"></navigation-bar>
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="serach-container">
+    <search id="search" 
+      addflag="{{false}}"
+      bind:searchList="setInput" 
+      searchstr="{{condition.keywords}}"
+      bind:endsearchList="enter"
+      bind:cancelsearch="clear"
+      bind:activity_clear="clear"/>
+    
+    <view wx:if="{{searchEd}}">
+      <view class="serach-body" wx:if="{{jobs.length > 0}}">
+        <view wx:for="{{jobs}}" wx:key="index">
+          <job-card name='{{item.name}}'
+            salary='{{filter.salaryFormat(item.salary,item.salaryType,item.payType)}}'
+            jobType='{{item.typeName}}'
+            createTime='{{filter.dateFormatStyle(item.createTime)}}'
+            address='{{item.address}}'
+            beginTime='{{filter.dateFormatLength(item.beginTime)}}'
+            endTime='{{filter.dateFormatLength(item.endTime)}}'
+            bindtap="details"
+            data-value="{{item.jobId}}"/>
+        </view>
+      </view>
+      <view class="serach-body empty" wx:else>
+        未查询到内容~
+      </view>
+    </view>
+  </view>
+</scroll-view>

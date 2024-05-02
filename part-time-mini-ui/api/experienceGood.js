@@ -24,3 +24,20 @@ export function deleteGood(goodId){
   })
 }
 
+// 分页查询
+export function getGoods(data){
+  return request({
+    url:'/good/list',
+    method: 'post',
+    data
+  })
+}
+
+// 统计用户的点赞数量
+export function count(experienceId,userId){
+  return request({
+    url:'/good/count?experienceId=' + experienceId + '&userId=' + userId,
+    method:'get',
+  })
+}
+
