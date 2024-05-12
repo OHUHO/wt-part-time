@@ -31,6 +31,7 @@ Page({
       this.setData({
         userInfo: res.data,
       })
+      wx.setStorageSync('userInfo', res.data)
     }
     this.getPrivateInfo(user.id)
   },
@@ -171,8 +172,7 @@ Page({
     })
   },
   
-  //联系客服
-
+  // 联系我们
   call() {
     wx.showModal({
       title: '提示',
@@ -211,4 +211,8 @@ Page({
       }
     })
   },
+  // tab切换时的钩子函数
+  onTabItemTap(){
+    this.onLoad()
+  }
 })

@@ -13,6 +13,7 @@ Page({
       size:9999,
     }
   },
+  
   async onLoad(options) {
     if(this.data.userInfo.business){
       // 查询商家信息
@@ -46,5 +47,9 @@ Page({
     wx.navigateTo({
       url: '/pages/job-details/job-details?jobId=' + e.currentTarget.dataset.value,
     })
+  },
+  // tab切换时的钩子函数
+  onTabItemTap(){
+    this.onLoad()
   }
 })

@@ -63,4 +63,14 @@ App({
     }
   },
 
+  // onPullDownRefresh: function () {
+  //   //启用标题栏显示加载状态
+  //   wx.showNavigationBarLoading()
+  //   console.log('下拉刷新 触发')
+  //   setTimeout(() => {
+  //     wx.hideNavigationBarLoading()
+  //     wx.stopPullDownRefresh() 
+  //   }, 2000);
+  // },
+
 })

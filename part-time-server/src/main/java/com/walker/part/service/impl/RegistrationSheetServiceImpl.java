@@ -52,7 +52,7 @@ public class RegistrationSheetServiceImpl extends ServiceImpl<RegistrationSheetM
         Page<RegistrationSheet> page = new Page<>(form.getCurrent(), form.getSize());
         Page<RegistrationSheet> sheetPage = getBaseMapper().selectPage(page, new LambdaQueryWrapper<RegistrationSheet>()
                 .eq(StringUtils.isNoneBlank(form.getJobId()), RegistrationSheet::getJobId, form.getJobId())
-                //.eq(StringUtils.isNoneBlank(form.getUserId()), RegistrationSheet::getUserId, form.getUserId())
+                .eq(StringUtils.isNoneBlank(form.getUserId()), RegistrationSheet::getUserId, form.getUserId())
         );
         Page<RegistrationResp> pageInfo = new Page<>();
         pageInfo.setTotal(sheetPage.getTotal());

@@ -1,6 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "SearchBar": "/components/searchBox/searchBox"
+    "SearchBar": "/components/search-bar/search-bar"
   }
 }

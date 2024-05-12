@@ -82,7 +82,7 @@ page {
   border: 4rpx solid whitesmoke;
   border-radius: 16rpx;
   background-color: white;
-  background-color: rgb(177, 194, 144);
+  /* background-color: rgb(177, 194, 144); */
   /* background-color: #e9d1c7; */
 }
 .type-item .title{

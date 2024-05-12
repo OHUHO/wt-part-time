@@ -39,6 +39,9 @@ Page({
     wx.navigateTo({
       url: '/pages/experience-details/experience-details?experienceId=' + experienceId,
     })
+  },
+  // tab切换时的钩子函数
+  onTabItemTap(){
+    this.onLoad()
   }
-
 })

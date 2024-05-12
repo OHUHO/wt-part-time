@@ -20,6 +20,7 @@ page {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  margin:16rpx 0;
 }
 .fans-item .userinfo-container .userinfo {
   display: flex;
