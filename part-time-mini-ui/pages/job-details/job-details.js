@@ -59,7 +59,7 @@ Page({
   // 报名
   async join(){
     // 判断当前是符合报名条件
-    let currentTime = new Date().getFullYear() + '/'+ (new Date().getMonth() + 1).toString().padStart(2, '0') + '/' + new Date().getDate().toString().padStart(2, '0') + " 00:00:00"
+    let currentTime = new Date().getFullYear() + '-'+ (new Date().getMonth() + 1).toString().padStart(2, '0') + '-' + new Date().getDate().toString().padStart(2, '0') + " 00:00:00"
     if(this.data.job.beginTime <= currentTime && this.data.job.endTime >= currentTime){
       wx.showToast({
         title: '兼职进行中，暂无法报名～',
