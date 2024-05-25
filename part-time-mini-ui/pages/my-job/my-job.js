@@ -6,7 +6,7 @@ Page({
     condition:{
       current:1,
       size:9999,
-      buinesssId:wx.getStorageSync('userInfo').id
+      businessId:wx.getStorageSync('userInfo').id
     }
   },
 
