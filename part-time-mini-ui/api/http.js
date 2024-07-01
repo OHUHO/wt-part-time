@@ -1,4 +1,4 @@
-const baseUrl = 'http://192.168.43.104:8417/api'
+const baseUrl = 'http://localhost:8417/api'
 
 function request({url='',method='GET',header={'content-type': 'application/json'},data={}}){
     return new Promise((resolve,reject) => {

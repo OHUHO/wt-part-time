@@ -18,7 +18,7 @@ spring:
       max-file-size: 100MB
       max-request-size: 100MB
 storage:
-  host: 192.168.43.104
+  host: localhost
   port: ${server.port}
   url: http://${storage.host}:${storage.port}${server.servlet.context-path}/files/
   abs-path: /Users/walker/Projects/PartTime/part-time/
