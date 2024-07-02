@@ -33,38 +33,45 @@ Page({
       desc: '用户信息用于完善资料', 
       success: (e) => {
         var user = e.userInfo
-        // 上传头像
-        this.uploadAvatar(user.avatarUrl)
-        this.setData({
-          username: user.nickName
-        })
-        wx.login({
-          success: (res) => {
-            wx.showLoading({
-              title: '登录中……',
-            })
-            //获取登录的临时凭证code
-            let data = {
-              code: res.code,
-              username: this.data.username,
-              portrait: this.data.portrait
-            }
-            // 用户登录
-            this.login(data)
-          },
+        // 上传头像，必须先保证执行完 uploadAvatar 后才执行 wx.login 
+        // 错误的示范
+        // this.uploadAvatar(user.avatarUrl)
+        // 在 this.uploadAvatar 方法中添加一个回调函数，在头像上传完成后调用该回调函数
+        this.uploadAvatar(user.avatarUrl, () => {
+          this.setData({
+            username: user.nickName
+          })
+          wx.login({
+            success: (res) => {
+              wx.showLoading({
+                title: '登录中……',
+              })
+              //获取登录的临时凭证code
+              let data = {
+                code: res.code,
+                username: this.data.username,
+                portrait: this.data.portrait
+              }
+              // 用户登录
+              this.login(data)
+            },
+          })
+
         })
       }
     })
   },
 
   // 上传头像
-  async uploadAvatar(avatarUrl){
+  async uploadAvatar(avatarUrl, callback){
     let res = await uploadFile(avatarUrl)
     res = JSON.parse(res)
     if(res.code === 200){
       this.setData({
         portrait: res.data
       })
+      // 调用回调函数，执行用户登录的操作
+      callback();
     }
   },
   // 登录
